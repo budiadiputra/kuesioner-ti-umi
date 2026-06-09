@@ -1177,8 +1177,8 @@ export default function App() {
 
   if (submitted) {
     return (
-      <div style={{ minHeight: "100vh", background: "#0d2240", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "'DM Sans', sans-serif", padding: "2rem" }}>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+      <div style={{ minHeight: "100vh", background: "linear-gradient(160deg, #e8f0fc 0%, #dce8f8 100%)", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "'DM Sans', sans-serif", padding: "2rem" }}>
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
         <div style={{ textAlign: "center", maxWidth: "480px" }}>
           <div style={{ width: "72px", height: "72px", borderRadius: "50%", background: "linear-gradient(135deg, #0ea5e9, #38bdf8)", margin: "0 auto 1.5rem", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "2rem" }}>✓</div>
           <h2 style={{ fontFamily: "'DM Sans', sans-serif", color: "#1a3a6e", fontSize: "1.6rem", fontWeight: 700, marginBottom: "0.75rem" }}>Terima Kasih!</h2>
@@ -1194,14 +1194,14 @@ export default function App() {
   const section = sections[step];
 
   return (
-    <div style={{ minHeight: "100vh", background: "#0d2240", fontFamily: "'DM Sans', sans-serif", color: "#1a2e4a", padding: "2rem 1rem" }}>
-      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <div style={{ minHeight: "100vh", background: "linear-gradient(160deg, #e8f0fc 0%, #dce8f8 100%)", fontFamily: "'DM Sans', sans-serif", color: "#1a2e4a", padding: "2.5rem 1rem" }}>
+      <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
       <div style={{ maxWidth: "640px", margin: "0 auto" }}>
 
         {/* Header */}
         <div style={{ marginBottom: "2rem", borderBottom: "1px solid #0f2033", paddingBottom: "1.5rem" }}>
-          <img src={logo} alt="Logo Teknik Industri UMI" style={{ height: "56px", objectFit: "contain", marginBottom: "1rem", display: "block" }} />
-          <h1 style={{ fontFamily: "'Syne', sans-serif", fontSize: "clamp(1.3rem, 3.5vw, 1.75rem)", fontWeight: 700, lineHeight: 1.3, color: "#1a3a6e", margin: "0", letterSpacing: "-0.01em" }}>
+          <img src={logo} alt="Logo Teknik Industri UMI" style={{ height: "60px", objectFit: "contain", display: "block", margin: "0 auto 1.25rem auto" }} />
+          <h1 style={{ fontFamily: "'Nunito', 'Avenir Next', 'Avenir', sans-serif", fontSize: "clamp(1.5rem, 4vw, 2.1rem)", fontWeight: 800, lineHeight: 1.3, color: "#ffffff", margin: "0", letterSpacing: "-0.01em", textShadow: "0 1px 6px rgba(0,0,0,0.15)" }}>
             Pemetaan Mahasiswa Teknik Industri - UMI
           </h1>
         </div>
