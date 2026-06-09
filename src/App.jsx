@@ -633,10 +633,10 @@ function WilayahSelect({ prefix, values, onChange }) {
   const baseInput = {
     width: "100%",
     padding: "0.75rem 1rem",
-    background: "#0d1b2a",
+    background: "#f5f9ff",
     border: "1px solid #1e3a5f",
     borderRadius: "8px",
-    color: "#e2eaf4",
+    color: "#1a3050",
     outline: "none",
     boxSizing: "border-box",
     fontFamily: "'DM Sans', sans-serif",
@@ -646,31 +646,31 @@ function WilayahSelect({ prefix, values, onChange }) {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "0.1rem" }}>
-      <label style={{ fontSize: "0.78rem", color: "#4a6a8a", marginBottom: "0.2rem" }}>Provinsi</label>
-      <select style={{ ...baseInput, cursor: "pointer", color: prov ? "#e2eaf4" : "#4a6080" }}
+      <label style={{ fontSize: "0.78rem", color: "#5a7a9a", marginBottom: "0.2rem" }}>Provinsi</label>
+      <select style={{ ...baseInput, cursor: "pointer", color: prov ? "#1a3050" : "#7a9ab8" }}
         value={prov} onChange={(e) => { onChange(prefix + "_provinsi", e.target.value); onChange(prefix + "_kabupaten", ""); }}>
         <option value="">— Pilih Provinsi —</option>
-        {PROVINCES.map(p => <option key={p} value={p} style={{ background: "#0d1b2a" }}>{p}</option>)}
+        {PROVINCES.map(p => <option key={p} value={p} style={{ background: "#f5f9ff" }}>{p}</option>)}
       </select>
 
-      <label style={{ fontSize: "0.78rem", color: "#4a6a8a", marginBottom: "0.2rem" }}>Kabupaten / Kota</label>
-      <select style={{ ...baseInput, cursor: prov ? "pointer" : "not-allowed", color: kab ? "#e2eaf4" : "#4a6080", opacity: prov ? 1 : 0.5 }}
+      <label style={{ fontSize: "0.78rem", color: "#5a7a9a", marginBottom: "0.2rem" }}>Kabupaten / Kota</label>
+      <select style={{ ...baseInput, cursor: prov ? "pointer" : "not-allowed", color: kab ? "#1a3050" : "#7a9ab8", opacity: prov ? 1 : 0.5 }}
         value={kab} disabled={!prov} onChange={(e) => onChange(prefix + "_kabupaten", e.target.value)}>
         <option value="">— Pilih Kabupaten/Kota —</option>
-        {kabList.map(k => <option key={k} value={k} style={{ background: "#0d1b2a" }}>{k}</option>)}
+        {kabList.map(k => <option key={k} value={k} style={{ background: "#f5f9ff" }}>{k}</option>)}
       </select>
 
-      <label style={{ fontSize: "0.78rem", color: "#4a6a8a", marginBottom: "0.2rem" }}>Kecamatan</label>
+      <label style={{ fontSize: "0.78rem", color: "#5a7a9a", marginBottom: "0.2rem" }}>Kecamatan</label>
       <input style={baseInput} placeholder="Ketik nama kecamatan..." value={kec}
         onChange={(e) => onChange(prefix + "_kecamatan", e.target.value)}
         onFocus={(e) => (e.target.style.borderColor = "#0ea5e9")}
-        onBlur={(e) => (e.target.style.borderColor = "#1e3a5f")} />
+        onBlur={(e) => (e.target.style.borderColor = "#b8d4ee")} />
 
-      <label style={{ fontSize: "0.78rem", color: "#4a6a8a", marginBottom: "0.2rem" }}>Kelurahan / Desa</label>
+      <label style={{ fontSize: "0.78rem", color: "#5a7a9a", marginBottom: "0.2rem" }}>Kelurahan / Desa</label>
       <input style={baseInput} placeholder="Ketik nama kelurahan/desa..." value={kel}
         onChange={(e) => onChange(prefix + "_kelurahan", e.target.value)}
         onFocus={(e) => (e.target.style.borderColor = "#0ea5e9")}
-        onBlur={(e) => (e.target.style.borderColor = "#1e3a5f")} />
+        onBlur={(e) => (e.target.style.borderColor = "#b8d4ee")} />
     </div>
   );
 }
@@ -686,27 +686,27 @@ function RadioWithOther({ q, value, otherValue, onChange, onOtherChange }) {
           <label key={o} onClick={() => onChange(q.id, o)} style={{
             display: "flex", alignItems: "center", gap: "0.75rem",
             padding: "0.6rem 0.9rem", borderRadius: "8px",
-            border: `1px solid ${selected ? "#0ea5e9" : "#1e3a5f"}`,
-            background: selected ? "rgba(14,165,233,0.08)" : "transparent",
+            border: `1px solid ${selected ? "#0ea5e9" : "#b8d4ee"}`,
+            background: selected ? "rgba(14,165,233,0.12)" : "transparent",
             cursor: "pointer", transition: "all 0.15s ease", userSelect: "none",
           }}>
             <div style={{
               width: "16px", height: "16px", borderRadius: "50%",
-              border: `2px solid ${selected ? "#0ea5e9" : "#2d4a6a"}`,
+              border: `2px solid ${selected ? "#0ea5e9" : "#90bce0"}`,
               background: selected ? "#0ea5e9" : "transparent",
               flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center",
             }}>
               {selected && <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#fff" }} />}
             </div>
-            <span style={{ ...base, color: selected ? "#e2eaf4" : "#8a9bb0" }}>{o}</span>
+            <span style={{ ...base, color: selected ? "#1a3050" : "#5a7a9a" }}>{o}</span>
           </label>
         );
       })}
       {isOtherSelected && (
         <input
           style={{
-            width: "100%", padding: "0.75rem 1rem", background: "#0d1b2a",
-            border: "1px solid #0ea5e9", borderRadius: "8px", color: "#e2eaf4",
+            width: "100%", padding: "0.75rem 1rem", background: "#f5f9ff",
+            border: "1px solid #0ea5e9", borderRadius: "8px", color: "#1a3050",
             outline: "none", boxSizing: "border-box", fontFamily: "'DM Sans', sans-serif", fontSize: "0.88rem",
           }}
           placeholder="Tuliskan jawaban Anda..."
@@ -735,31 +735,31 @@ function CheckboxWithOther({ q, value, otherValue, onChange, onOtherChange }) {
           }} style={{
             display: "flex", alignItems: "center", gap: "0.75rem",
             padding: "0.6rem 0.9rem", borderRadius: "8px",
-            border: `1px solid ${checked ? "#38bdf8" : "#1e3a5f"}`,
-            background: checked ? "rgba(56,189,248,0.07)" : "transparent",
+            border: `1px solid ${checked ? "#38bdf8" : "#b8d4ee"}`,
+            background: checked ? "rgba(14,165,233,0.10)" : "transparent",
             cursor: "pointer", transition: "all 0.15s ease", userSelect: "none",
           }}>
             <div style={{
               width: "16px", height: "16px", borderRadius: "4px",
-              border: `2px solid ${checked ? "#38bdf8" : "#2d4a6a"}`,
+              border: `2px solid ${checked ? "#38bdf8" : "#90bce0"}`,
               background: checked ? "#38bdf8" : "transparent",
               flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center",
             }}>
               {checked && (
                 <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
-                  <path d="M1 4L3.5 6.5L9 1" stroke="#0d1b2a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M1 4L3.5 6.5L9 1" stroke="#f5f9ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               )}
             </div>
-            <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.92rem", color: checked ? "#e2eaf4" : "#8a9bb0" }}>{o}</span>
+            <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.92rem", color: checked ? "#1a3050" : "#5a7a9a" }}>{o}</span>
           </label>
         );
       })}
       {hasOther && isOtherChecked && (
         <input
           style={{
-            width: "100%", padding: "0.75rem 1rem", background: "#0d1b2a",
-            border: "1px solid #38bdf8", borderRadius: "8px", color: "#e2eaf4",
+            width: "100%", padding: "0.75rem 1rem", background: "#f5f9ff",
+            border: "1px solid #38bdf8", borderRadius: "8px", color: "#1a3050",
             outline: "none", boxSizing: "border-box", fontFamily: "'DM Sans', sans-serif", fontSize: "0.88rem",
           }}
           placeholder="Tuliskan jawaban Anda..."
@@ -806,12 +806,12 @@ function ProgressBar({ current, total }) {
   return (
     <div style={{ marginBottom: "2rem" }}>
       <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "0.4rem" }}>
-        <span style={{ fontSize: "0.75rem", color: "#8a9bb0", letterSpacing: "0.08em", textTransform: "uppercase" }}>
+        <span style={{ fontSize: "0.75rem", color: "#5a7a9a", letterSpacing: "0.08em", textTransform: "uppercase" }}>
           Seksi {current} dari {total}
         </span>
         <span style={{ fontSize: "0.75rem", color: "#4fc3f7", fontWeight: 700 }}>{pct}%</span>
       </div>
-      <div style={{ height: "3px", background: "#1a2a3a", borderRadius: "2px" }}>
+      <div style={{ height: "3px", background: "#ddeeff", borderRadius: "2px" }}>
         <div style={{
           height: "100%", width: `${pct}%`,
           background: "linear-gradient(90deg, #0ea5e9, #38bdf8)",
@@ -823,31 +823,31 @@ function ProgressBar({ current, total }) {
 }
 
 const baseInput = {
-  width: "100%", padding: "0.75rem 1rem", background: "#0d1b2a",
-  border: "1px solid #1e3a5f", borderRadius: "8px", color: "#e2eaf4",
+  width: "100%", padding: "0.75rem 1rem", background: "#f5f9ff",
+  border: "1px solid #1e3a5f", borderRadius: "8px", color: "#1a3050",
   outline: "none", boxSizing: "border-box",
   fontFamily: "'DM Sans', sans-serif", fontSize: "0.92rem",
 };
 
-const labelStyle = { fontSize: "0.78rem", color: "#4a6a8a", marginBottom: "0.3rem", display: "block" };
+const labelStyle = { fontSize: "0.78rem", color: "#5a7a9a", marginBottom: "0.3rem", display: "block" };
 
 function SectionA({ answers, onChange }) {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "1.75rem" }}>
       {/* Nama */}
       <div>
-        <p style={{ fontSize: "0.92rem", color: "#c8dff0", fontWeight: 500, marginBottom: "0.75rem" }}>
+        <p style={{ fontSize: "0.92rem", color: "#1e4070", fontWeight: 500, marginBottom: "0.75rem" }}>
           <span style={{ color: "#0ea5e9", marginRight: "0.4rem" }}>1.</span>Nama Lengkap
         </p>
         <input style={baseInput} placeholder="Tulis nama lengkap Anda"
           value={answers.q1 || ""} onChange={(e) => onChange("q1", e.target.value)}
           onFocus={(e) => (e.target.style.borderColor = "#0ea5e9")}
-          onBlur={(e) => (e.target.style.borderColor = "#1e3a5f")} />
+          onBlur={(e) => (e.target.style.borderColor = "#b8d4ee")} />
       </div>
 
       {/* Jenis Kelamin */}
       <div>
-        <p style={{ fontSize: "0.92rem", color: "#c8dff0", fontWeight: 500, marginBottom: "0.75rem" }}>
+        <p style={{ fontSize: "0.92rem", color: "#1e4070", fontWeight: 500, marginBottom: "0.75rem" }}>
           <span style={{ color: "#0ea5e9", marginRight: "0.4rem" }}>2.</span>Jenis Kelamin
         </p>
         <RadioWithOther
@@ -858,18 +858,18 @@ function SectionA({ answers, onChange }) {
 
       {/* Asal Sekolah */}
       <div>
-        <p style={{ fontSize: "0.92rem", color: "#c8dff0", fontWeight: 500, marginBottom: "0.75rem" }}>
+        <p style={{ fontSize: "0.92rem", color: "#1e4070", fontWeight: 500, marginBottom: "0.75rem" }}>
           <span style={{ color: "#0ea5e9", marginRight: "0.4rem" }}>3.</span>Asal Sekolah / SMA / SMK
         </p>
         <input style={baseInput} placeholder="Nama sekolah asal"
           value={answers.q3 || ""} onChange={(e) => onChange("q3", e.target.value)}
           onFocus={(e) => (e.target.style.borderColor = "#0ea5e9")}
-          onBlur={(e) => (e.target.style.borderColor = "#1e3a5f")} />
+          onBlur={(e) => (e.target.style.borderColor = "#b8d4ee")} />
       </div>
 
       {/* Asal Daerah */}
       <div>
-        <p style={{ fontSize: "0.92rem", color: "#c8dff0", fontWeight: 500, marginBottom: "0.75rem" }}>
+        <p style={{ fontSize: "0.92rem", color: "#1e4070", fontWeight: 500, marginBottom: "0.75rem" }}>
           <span style={{ color: "#0ea5e9", marginRight: "0.4rem" }}>4.</span>Asal Daerah
         </p>
         <WilayahSelect prefix="asal" values={answers} onChange={onChange} />
@@ -877,7 +877,7 @@ function SectionA({ answers, onChange }) {
 
       {/* Alamat Domisili */}
       <div>
-        <p style={{ fontSize: "0.92rem", color: "#c8dff0", fontWeight: 500, marginBottom: "0.75rem" }}>
+        <p style={{ fontSize: "0.92rem", color: "#1e4070", fontWeight: 500, marginBottom: "0.75rem" }}>
           <span style={{ color: "#0ea5e9", marginRight: "0.4rem" }}>5.</span>Alamat Domisili Saat Ini
         </p>
         <WilayahSelect prefix="domisili" values={answers} onChange={onChange} />
@@ -885,7 +885,7 @@ function SectionA({ answers, onChange }) {
 
       {/* Status Mahasiswa */}
       <div>
-        <p style={{ fontSize: "0.92rem", color: "#c8dff0", fontWeight: 500, marginBottom: "0.75rem" }}>
+        <p style={{ fontSize: "0.92rem", color: "#1e4070", fontWeight: 500, marginBottom: "0.75rem" }}>
           <span style={{ color: "#0ea5e9", marginRight: "0.4rem" }}>6.</span>Status Mahasiswa
         </p>
         <RadioWithOther
@@ -901,17 +901,17 @@ function SectionB({ answers, onChange }) {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "1.75rem" }}>
       <div>
-        <p style={{ fontSize: "0.92rem", color: "#c8dff0", fontWeight: 500, marginBottom: "0.25rem" }}>
+        <p style={{ fontSize: "0.92rem", color: "#1e4070", fontWeight: 500, marginBottom: "0.25rem" }}>
           <span style={{ color: "#0ea5e9", marginRight: "0.4rem" }}>1.</span>Dari mana Anda pertama kali mengetahui Program Studi Teknik Industri UMI?
         </p>
-        <p style={{ fontSize: "0.78rem", color: "#4a6a8a", marginBottom: "0.75rem" }}>(Pilih semua yang sesuai)</p>
+        <p style={{ fontSize: "0.78rem", color: "#5a7a9a", marginBottom: "0.75rem" }}>(Pilih semua yang sesuai)</p>
         <CheckboxWithOther
           q={{ id: "q6", options: ["Media sosial (Instagram, TikTok, Facebook, YouTube)", "Website resmi UMI", "Brosur / pamflet cetak", "Pameran pendidikan / expo", "Kunjungan kampus ke sekolah", "Teman / alumni yang sudah kuliah di sini", "Anggota keluarga", "Guru / konselor sekolah", "Iklan berbayar (Google Ads, Meta Ads)", "Lainnya"] }}
           value={answers.q6} otherValue={answers.q6_other}
           onChange={onChange} onOtherChange={onChange} />
       </div>
       <div>
-        <p style={{ fontSize: "0.92rem", color: "#c8dff0", fontWeight: 500, marginBottom: "0.75rem" }}>
+        <p style={{ fontSize: "0.92rem", color: "#1e4070", fontWeight: 500, marginBottom: "0.75rem" }}>
           <span style={{ color: "#0ea5e9", marginRight: "0.4rem" }}>2.</span>Platform media sosial mana yang PALING BANYAK memberikan informasi tentang TI UMI?
         </p>
         <RadioWithOther
@@ -920,7 +920,7 @@ function SectionB({ answers, onChange }) {
           onChange={onChange} onOtherChange={onChange} />
       </div>
       <div>
-        <p style={{ fontSize: "0.92rem", color: "#c8dff0", fontWeight: 500, marginBottom: "0.75rem" }}>
+        <p style={{ fontSize: "0.92rem", color: "#1e4070", fontWeight: 500, marginBottom: "0.75rem" }}>
           <span style={{ color: "#0ea5e9", marginRight: "0.4rem" }}>3.</span>Seberapa lengkap informasi yang Anda dapatkan sebelum mendaftar?
         </p>
         <RadioWithOther
@@ -929,10 +929,10 @@ function SectionB({ answers, onChange }) {
           onChange={onChange} onOtherChange={onChange} />
       </div>
       <div>
-        <p style={{ fontSize: "0.92rem", color: "#c8dff0", fontWeight: 500, marginBottom: "0.25rem" }}>
+        <p style={{ fontSize: "0.92rem", color: "#1e4070", fontWeight: 500, marginBottom: "0.25rem" }}>
           <span style={{ color: "#0ea5e9", marginRight: "0.4rem" }}>4.</span>Informasi apa yang paling Anda butuhkan sebelum memilih jurusan ini?
         </p>
-        <p style={{ fontSize: "0.78rem", color: "#4a6a8a", marginBottom: "0.75rem" }}>(Pilih semua yang sesuai)</p>
+        <p style={{ fontSize: "0.78rem", color: "#5a7a9a", marginBottom: "0.75rem" }}>(Pilih semua yang sesuai)</p>
         <CheckboxWithOther
           q={{ id: "q9", options: ["Prospek kerja lulusan TI", "Mata kuliah yang dipelajari", "Biaya kuliah dan beasiswa", "Fasilitas laboratorium", "Akreditasi program studi", "Kehidupan kampus dan organisasi", "Testimoni alumni", "Info dosen dan staf pengajar", "Lainnya"] }}
           value={answers.q9} otherValue={answers.q9_other}
@@ -946,7 +946,7 @@ function SectionC({ answers, onChange }) {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "1.75rem" }}>
       <div>
-        <p style={{ fontSize: "0.92rem", color: "#c8dff0", fontWeight: 500, marginBottom: "0.75rem" }}>
+        <p style={{ fontSize: "0.92rem", color: "#1e4070", fontWeight: 500, marginBottom: "0.75rem" }}>
           <span style={{ color: "#0ea5e9", marginRight: "0.4rem" }}>1.</span>Siapa yang paling berpengaruh dalam keputusan Anda memilih TI UMI?
         </p>
         <RadioWithOther
@@ -955,7 +955,7 @@ function SectionC({ answers, onChange }) {
           onChange={onChange} onOtherChange={onChange} />
       </div>
       <div>
-        <p style={{ fontSize: "0.92rem", color: "#c8dff0", fontWeight: 500, marginBottom: "0.75rem" }}>
+        <p style={{ fontSize: "0.92rem", color: "#1e4070", fontWeight: 500, marginBottom: "0.75rem" }}>
           <span style={{ color: "#0ea5e9", marginRight: "0.4rem" }}>2.</span>Apakah Anda mendapat dukungan penuh dari orang tua untuk kuliah di TI UMI?
         </p>
         <RadioWithOther
@@ -964,17 +964,17 @@ function SectionC({ answers, onChange }) {
           onChange={onChange} onOtherChange={onChange} />
       </div>
       <div>
-        <p style={{ fontSize: "0.92rem", color: "#c8dff0", fontWeight: 500, marginBottom: "0.25rem" }}>
+        <p style={{ fontSize: "0.92rem", color: "#1e4070", fontWeight: 500, marginBottom: "0.25rem" }}>
           <span style={{ color: "#0ea5e9", marginRight: "0.4rem" }}>3.</span>Apa alasan utama Anda memilih Teknik Industri UMI?
         </p>
-        <p style={{ fontSize: "0.78rem", color: "#4a6a8a", marginBottom: "0.75rem" }}>(Pilih maksimal 3)</p>
+        <p style={{ fontSize: "0.78rem", color: "#5a7a9a", marginBottom: "0.75rem" }}>(Pilih maksimal 3)</p>
         <CheckboxWithOther
           q={{ id: "q12", options: ["Prospek kerja yang luas", "Reputasi UMI sebagai PTM terbesar di KTI", "Lokasi strategis di Makassar", "Biaya kuliah terjangkau", "Rekomendasi dari orang sekitar", "Program studi sesuai minat / bakat", "Fasilitas dan laboratorium", "Ada teman / keluarga yang kuliah di sini", "Sudah tidak ada pilihan lain", "Lainnya"] }}
           value={answers.q12} otherValue={answers.q12_other}
           onChange={onChange} onOtherChange={onChange} />
       </div>
       <div>
-        <p style={{ fontSize: "0.92rem", color: "#c8dff0", fontWeight: 500, marginBottom: "0.75rem" }}>
+        <p style={{ fontSize: "0.92rem", color: "#1e4070", fontWeight: 500, marginBottom: "0.75rem" }}>
           <span style={{ color: "#0ea5e9", marginRight: "0.4rem" }}>4.</span>Apakah TI UMI merupakan pilihan pertama Anda?
         </p>
         <RadioWithOther
@@ -992,11 +992,11 @@ function SectionD({ answers, onChange }) {
     <div style={{ display: "flex", flexDirection: "column", gap: "1.75rem" }}>
 
       {/* AYAH / WALI */}
-      <div style={{ background: "rgba(14,165,233,0.04)", border: "1px solid #0f2a40", borderRadius: "10px", padding: "1.25rem" }}>
+      <div style={{ background: "rgba(14,165,233,0.06)", border: "1px solid #0f2a40", borderRadius: "10px", padding: "1.25rem" }}>
         <p style={subLabel}>Ayah / Wali</p>
         <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
           <div>
-            <p style={{ fontSize: "0.92rem", color: "#c8dff0", fontWeight: 500, marginBottom: "0.75rem" }}>
+            <p style={{ fontSize: "0.92rem", color: "#1e4070", fontWeight: 500, marginBottom: "0.75rem" }}>
               <span style={{ color: "#0ea5e9", marginRight: "0.4rem" }}>1.</span>Pekerjaan Utama Ayah / Wali
             </p>
             <RadioWithOther
@@ -1005,7 +1005,7 @@ function SectionD({ answers, onChange }) {
               onChange={onChange} onOtherChange={onChange} />
           </div>
           <div>
-            <p style={{ fontSize: "0.92rem", color: "#c8dff0", fontWeight: 500, marginBottom: "0.75rem" }}>
+            <p style={{ fontSize: "0.92rem", color: "#1e4070", fontWeight: 500, marginBottom: "0.75rem" }}>
               <span style={{ color: "#0ea5e9", marginRight: "0.4rem" }}>2.</span>Estimasi Pendapatan Ayah / Wali per Bulan
             </p>
             <RadioWithOther
@@ -1017,11 +1017,11 @@ function SectionD({ answers, onChange }) {
       </div>
 
       {/* IBU */}
-      <div style={{ background: "rgba(56,189,248,0.04)", border: "1px solid #0f2a40", borderRadius: "10px", padding: "1.25rem" }}>
+      <div style={{ background: "rgba(56,189,248,0.06)", border: "1px solid #b8d4ee", borderRadius: "10px", padding: "1.25rem" }}>
         <p style={{ ...subLabel, borderColor: "#38bdf8", color: "#38bdf8" }}>Ibu</p>
         <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
           <div>
-            <p style={{ fontSize: "0.92rem", color: "#c8dff0", fontWeight: 500, marginBottom: "0.75rem" }}>
+            <p style={{ fontSize: "0.92rem", color: "#1e4070", fontWeight: 500, marginBottom: "0.75rem" }}>
               <span style={{ color: "#0ea5e9", marginRight: "0.4rem" }}>3.</span>Pekerjaan Utama Ibu
             </p>
             <RadioWithOther
@@ -1030,7 +1030,7 @@ function SectionD({ answers, onChange }) {
               onChange={onChange} onOtherChange={onChange} />
           </div>
           <div>
-            <p style={{ fontSize: "0.92rem", color: "#c8dff0", fontWeight: 500, marginBottom: "0.75rem" }}>
+            <p style={{ fontSize: "0.92rem", color: "#1e4070", fontWeight: 500, marginBottom: "0.75rem" }}>
               <span style={{ color: "#0ea5e9", marginRight: "0.4rem" }}>4.</span>Estimasi Pendapatan Ibu per Bulan
             </p>
             <RadioWithOther
@@ -1043,23 +1043,23 @@ function SectionD({ answers, onChange }) {
 
       {/* Jumlah Bersaudara */}
       <div>
-        <p style={{ fontSize: "0.92rem", color: "#c8dff0", fontWeight: 500, marginBottom: "0.75rem" }}>
+        <p style={{ fontSize: "0.92rem", color: "#1e4070", fontWeight: 500, marginBottom: "0.75rem" }}>
           <span style={{ color: "#0ea5e9", marginRight: "0.4rem" }}>5.</span>Jumlah Bersaudara (termasuk Anda)
         </p>
         <select
-          style={{ ...baseInput, cursor: "pointer", color: answers.q_saudara ? "#e2eaf4" : "#4a6080" }}
+          style={{ ...baseInput, cursor: "pointer", color: answers.q_saudara ? "#1a3050" : "#7a9ab8" }}
           value={answers.q_saudara || ""}
           onChange={(e) => onChange("q_saudara", e.target.value)}>
           <option value="">— Pilih jumlah —</option>
           {[1,2,3,4,5,6,7,8,9,10].map(n => (
-            <option key={n} value={String(n)} style={{ background: "#0d1b2a" }}>{n} orang</option>
+            <option key={n} value={String(n)} style={{ background: "#f5f9ff" }}>{n} orang</option>
           ))}
         </select>
       </div>
 
       {/* Beasiswa */}
       <div>
-        <p style={{ fontSize: "0.92rem", color: "#c8dff0", fontWeight: 500, marginBottom: "0.75rem" }}>
+        <p style={{ fontSize: "0.92rem", color: "#1e4070", fontWeight: 500, marginBottom: "0.75rem" }}>
           <span style={{ color: "#0ea5e9", marginRight: "0.4rem" }}>6.</span>Apakah Anda menerima beasiswa atau bantuan biaya kuliah?
         </p>
         <RadioWithOther
@@ -1070,7 +1070,7 @@ function SectionD({ answers, onChange }) {
 
       {/* Faktor biaya */}
       <div>
-        <p style={{ fontSize: "0.92rem", color: "#c8dff0", fontWeight: 500, marginBottom: "0.75rem" }}>
+        <p style={{ fontSize: "0.92rem", color: "#1e4070", fontWeight: 500, marginBottom: "0.75rem" }}>
           <span style={{ color: "#0ea5e9", marginRight: "0.4rem" }}>7.</span>Faktor biaya, seberapa penting dalam keputusan memilih TI UMI?
         </p>
         <RadioWithOther
@@ -1086,7 +1086,7 @@ function SectionE({ answers, onChange }) {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "1.75rem" }}>
       <div>
-        <p style={{ fontSize: "0.92rem", color: "#c8dff0", fontWeight: 500, marginBottom: "0.75rem" }}>
+        <p style={{ fontSize: "0.92rem", color: "#1e4070", fontWeight: 500, marginBottom: "0.75rem" }}>
           <span style={{ color: "#0ea5e9", marginRight: "0.4rem" }}>1.</span>Seberapa puas Anda dengan informasi promosi TI UMI sebelum mendaftar?
         </p>
         <RadioWithOther
@@ -1095,17 +1095,17 @@ function SectionE({ answers, onChange }) {
           onChange={onChange} onOtherChange={onChange} />
       </div>
       <div>
-        <p style={{ fontSize: "0.92rem", color: "#c8dff0", fontWeight: 500, marginBottom: "0.25rem" }}>
+        <p style={{ fontSize: "0.92rem", color: "#1e4070", fontWeight: 500, marginBottom: "0.25rem" }}>
           <span style={{ color: "#0ea5e9", marginRight: "0.4rem" }}>2.</span>Media promosi apa yang menurut Anda paling efektif untuk menjangkau calon mahasiswa baru?
         </p>
-        <p style={{ fontSize: "0.78rem", color: "#4a6a8a", marginBottom: "0.75rem" }}>(Pilih semua yang sesuai)</p>
+        <p style={{ fontSize: "0.78rem", color: "#5a7a9a", marginBottom: "0.75rem" }}>(Pilih semua yang sesuai)</p>
         <CheckboxWithOther
           q={{ id: "q19", options: ["Konten TikTok / Reels pendek", "Testimoni alumni (video / tulisan)", "Open House / hari kunjungan kampus", "Kunjungan langsung ke SMA/SMK", "Iklan di media lokal (koran, TV)", "Grup WhatsApp alumni SMA", "Podcast / webinar tentang karier TI", "Brosur fisik", "Lainnya"] }}
           value={answers.q19} otherValue={answers.q19_other}
           onChange={onChange} onOtherChange={onChange} />
       </div>
       <div>
-        <p style={{ fontSize: "0.92rem", color: "#c8dff0", fontWeight: 500, marginBottom: "0.75rem" }}>
+        <p style={{ fontSize: "0.92rem", color: "#1e4070", fontWeight: 500, marginBottom: "0.75rem" }}>
           <span style={{ color: "#0ea5e9", marginRight: "0.4rem" }}>3.</span>Pesan atau saran untuk meningkatkan promosi Program Studi Teknik Industri UMI
         </p>
         <textarea
@@ -1114,7 +1114,7 @@ function SectionE({ answers, onChange }) {
           value={answers.q20 || ""}
           onChange={(e) => onChange("q20", e.target.value)}
           onFocus={(e) => (e.target.style.borderColor = "#0ea5e9")}
-          onBlur={(e) => (e.target.style.borderColor = "#1e3a5f")} />
+          onBlur={(e) => (e.target.style.borderColor = "#b8d4ee")} />
       </div>
     </div>
   );
@@ -1177,13 +1177,13 @@ export default function App() {
 
   if (submitted) {
     return (
-      <div style={{ minHeight: "100vh", background: "#060f1a", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "'DM Sans', sans-serif", padding: "2rem" }}>
+      <div style={{ minHeight: "100vh", background: "#0d2040", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "'DM Sans', sans-serif", padding: "2rem" }}>
         <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
         <div style={{ textAlign: "center", maxWidth: "480px" }}>
           <div style={{ width: "72px", height: "72px", borderRadius: "50%", background: "linear-gradient(135deg, #0ea5e9, #38bdf8)", margin: "0 auto 1.5rem", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "2rem" }}>✓</div>
-          <h2 style={{ fontFamily: "'Syne', sans-serif", color: "#e2eaf4", fontSize: "1.8rem", marginBottom: "0.75rem" }}>Terima Kasih!</h2>
-          <p style={{ color: "#8a9bb0", lineHeight: 1.7, marginBottom: "2rem" }}>Jawaban Anda telah kami terima. Informasi ini sangat berharga untuk pengembangan strategi promosi Program Studi Teknik Industri UMI.</p>
-          <div style={{ padding: "1rem", background: "rgba(14,165,233,0.08)", border: "1px solid rgba(14,165,233,0.2)", borderRadius: "10px", color: "#4fc3f7", fontSize: "0.85rem" }}>
+          <h2 style={{ fontFamily: "'Syne', sans-serif", color: "#1a3050", fontSize: "1.8rem", marginBottom: "0.75rem" }}>Terima Kasih!</h2>
+          <p style={{ color: "#5a7a9a", lineHeight: 1.7, marginBottom: "2rem" }}>Jawaban Anda telah kami terima. Informasi ini sangat berharga untuk pengembangan strategi promosi Program Studi Teknik Industri UMI.</p>
+          <div style={{ padding: "1rem", background: "rgba(14,165,233,0.12)", border: "1px solid rgba(14,165,233,0.2)", borderRadius: "10px", color: "#4fc3f7", fontSize: "0.85rem" }}>
             Program Studi Teknik Industri · Universitas Muslim Indonesia
           </div>
         </div>
@@ -1194,14 +1194,14 @@ export default function App() {
   const section = sections[step];
 
   return (
-    <div style={{ minHeight: "100vh", background: "#060f1a", fontFamily: "'DM Sans', sans-serif", color: "#e2eaf4", padding: "2rem 1rem" }}>
+    <div style={{ minHeight: "100vh", background: "#0d2040", fontFamily: "'DM Sans', sans-serif", color: "#1a3050", padding: "2rem 1rem" }}>
       <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
       <div style={{ maxWidth: "640px", margin: "0 auto" }}>
 
         {/* Header */}
         <div style={{ marginBottom: "2rem", borderBottom: "1px solid #0f2033", paddingBottom: "1.5rem" }}>
           <img src={logo} alt="Logo Teknik Industri UMI" style={{ height: "56px", objectFit: "contain", marginBottom: "1rem", display: "block" }} />
-          <h1 style={{ fontFamily: "'Syne', sans-serif", fontSize: "clamp(1.4rem, 4vw, 2rem)", fontWeight: 800, lineHeight: 1.2, color: "#f0f6ff", margin: "0 0 0.5rem" }}>
+          <h1 style={{ fontFamily: "'Syne', sans-serif", fontSize: "clamp(1.4rem, 4vw, 2rem)", fontWeight: 800, lineHeight: 1.2, color: "#0d2040", margin: "0 0 0.5rem" }}>
             Pemetaan Mahasiswa Teknik Industri - UMI
           </h1>
         </div>
@@ -1209,10 +1209,10 @@ export default function App() {
         <ProgressBar current={step + 1} total={totalSteps} />
 
         {/* Section Card */}
-        <div style={{ background: "#0a1828", border: "1px solid #0f2a40", borderRadius: "16px", padding: "2rem", marginBottom: "1.5rem" }}>
+        <div style={{ background: "#ffffff", border: "1px solid #0f2a40", borderRadius: "16px", padding: "2rem", marginBottom: "1.5rem" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1.75rem" }}>
             <span style={{ fontSize: "1.4rem", color: "#0ea5e9", lineHeight: 1 }}>{section.icon}</span>
-            <h2 style={{ fontFamily: "'Syne', sans-serif", fontSize: "1.1rem", fontWeight: 700, color: "#c8dff0", margin: 0 }}>{section.title}</h2>
+            <h2 style={{ fontFamily: "'Syne', sans-serif", fontSize: "1.1rem", fontWeight: 700, color: "#1e4070", margin: 0 }}>{section.title}</h2>
           </div>
           {step === 0 && <SectionA answers={answers} onChange={handleChange} />}
           {step === 1 && <SectionB answers={answers} onChange={handleChange} />}
@@ -1226,17 +1226,17 @@ export default function App() {
           {step > 0 ? (
             <button onClick={() => setStep((s) => s - 1)} style={{ flex: 1, padding: "0.85rem", background: "transparent", border: "1px solid #1e3a5f", borderRadius: "10px", color: "#5a7a9a", fontFamily: "'DM Sans', sans-serif", fontSize: "0.9rem", cursor: "pointer" }}
               onMouseEnter={(e) => { e.target.style.borderColor = "#38bdf8"; e.target.style.color = "#38bdf8"; }}
-              onMouseLeave={(e) => { e.target.style.borderColor = "#1e3a5f"; e.target.style.color = "#5a7a9a"; }}>
+              onMouseLeave={(e) => { e.target.style.borderColor = "#b8d4ee"; e.target.style.color = "#5a7a9a"; }}>
               ← Sebelumnya
             </button>
           ) : <div style={{ flex: 1 }} />}
 
           {step < totalSteps - 1 ? (
-            <button onClick={() => ok && setStep((s) => s + 1)} style={{ flex: 2, padding: "0.85rem", background: ok ? "linear-gradient(135deg, #0369a1, #0ea5e9)" : "#0f2033", border: "none", borderRadius: "10px", color: ok ? "#fff" : "#2d4a6a", fontFamily: "'DM Sans', sans-serif", fontSize: "0.9rem", fontWeight: 600, cursor: ok ? "pointer" : "not-allowed" }}>
+            <button onClick={() => ok && setStep((s) => s + 1)} style={{ flex: 2, padding: "0.85rem", background: ok ? "linear-gradient(135deg, #0369a1, #0ea5e9)" : "#ddeeff", border: "none", borderRadius: "10px", color: ok ? "#fff" : "#90bce0", fontFamily: "'DM Sans', sans-serif", fontSize: "0.9rem", fontWeight: 600, cursor: ok ? "pointer" : "not-allowed" }}>
               Lanjut →
             </button>
           ) : (
-            <button onClick={handleSubmit} disabled={!ok || isLoading} style={{ flex: 2, padding: "0.85rem", background: ok && !isLoading ? "linear-gradient(135deg, #059669, #10b981)" : "#0f2033", border: "none", borderRadius: "10px", color: ok && !isLoading ? "#fff" : "#2d4a6a", fontFamily: "'DM Sans', sans-serif", fontSize: "0.9rem", fontWeight: 600, cursor: ok && !isLoading ? "pointer" : "not-allowed" }}>
+            <button onClick={handleSubmit} disabled={!ok || isLoading} style={{ flex: 2, padding: "0.85rem", background: ok && !isLoading ? "linear-gradient(135deg, #059669, #10b981)" : "#ddeeff", border: "none", borderRadius: "10px", color: ok && !isLoading ? "#fff" : "#90bce0", fontFamily: "'DM Sans', sans-serif", fontSize: "0.9rem", fontWeight: 600, cursor: ok && !isLoading ? "pointer" : "not-allowed" }}>
               {isLoading ? "Mengirim..." : "Kirim Kuesioner ✓"}
             </button>
           )}
@@ -1245,7 +1245,7 @@ export default function App() {
         {/* Dots */}
         <div style={{ display: "flex", justifyContent: "center", gap: "0.5rem", marginTop: "1.5rem" }}>
           {sections.map((_, i) => (
-            <div key={i} style={{ width: i === step ? "20px" : "6px", height: "6px", borderRadius: "3px", background: i <= step ? "#0ea5e9" : "#1e3a5f", transition: "all 0.3s ease" }} />
+            <div key={i} style={{ width: i === step ? "20px" : "6px", height: "6px", borderRadius: "3px", background: i <= step ? "#0ea5e9" : "#b8d4ee", transition: "all 0.3s ease" }} />
           ))}
         </div>
       </div>
