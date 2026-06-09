@@ -1201,8 +1201,8 @@ export default function App() {
         {/* Header */}
         <div style={{ marginBottom: "2rem", borderBottom: "1px solid #0f2033", paddingBottom: "1.5rem" }}>
           <img src={logo} alt="Logo Teknik Industri UMI" style={{ height: "60px", objectFit: "contain", display: "block", margin: "0 auto 1.25rem auto" }} />
-          <h1 style={{ fontFamily: "'Nunito', 'Avenir Next', 'Avenir', sans-serif", fontSize: "clamp(1.5rem, 4vw, 2.1rem)", fontWeight: 800, lineHeight: 1.3, color: "#ffffff", margin: "0", letterSpacing: "-0.01em", textShadow: "0 1px 6px rgba(0,0,0,0.15)" }}>
-            Pemetaan Mahasiswa Teknik Industri - UMI
+          <h1 style={{ fontFamily: "'Nunito', 'Avenir Next', 'Avenir', sans-serif", fontSize: "clamp(1.4rem, 3.5vw, 2rem)", fontWeight: 800, lineHeight: 1.4, color: "#0f2d6b", margin: "0", letterSpacing: "-0.01em", textAlign: "center" }}>
+            Pemetaan Mahasiswa<br />Teknik Industri - UMI
           </h1>
         </div>
 
