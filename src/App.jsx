@@ -1009,7 +1009,7 @@ function SectionD({ answers, onChange }) {
               <span style={{ color: "#0ea5e9", marginRight: "0.4rem" }}>2.</span>Estimasi Pendapatan Ayah / Wali per Bulan
             </p>
             <RadioWithOther
-              q={{ id: "q_ayah_income", options: ["Di bawah Rp 1.500.000", "Rp 1.500.000 – Rp 3.000.000", "Rp 3.000.001 – Rp 5.000.000", "Rp 5.000.001 – Rp 10.000.000", "Di atas Rp 10.000.000", "Tidak ingin menyebutkan"] }}
+              q={{ id: "q_ayah_income", options: ["Di bawah Rp 1.500.000", "Rp 1.500.000 – Rp 3.000.000", "Rp 3.000.001 – Rp 5.000.000", "Rp 5.000.001 – Rp 10.000.000", "Di atas Rp 10.000.000"] }}
               value={answers.q_ayah_income} otherValue={answers.q_ayah_income_other}
               onChange={onChange} onOtherChange={onChange} />
           </div>
@@ -1034,7 +1034,7 @@ function SectionD({ answers, onChange }) {
               <span style={{ color: "#0ea5e9", marginRight: "0.4rem" }}>4.</span>Estimasi Pendapatan Ibu per Bulan
             </p>
             <RadioWithOther
-              q={{ id: "q_ibu_income", options: ["Di bawah Rp 1.500.000", "Rp 1.500.000 – Rp 3.000.000", "Rp 3.000.001 – Rp 5.000.000", "Rp 5.000.001 – Rp 10.000.000", "Di atas Rp 10.000.000", "Tidak bekerja / tidak berpenghasilan", "Tidak ingin menyebutkan"] }}
+              q={{ id: "q_ibu_income", options: ["Di bawah Rp 1.500.000", "Rp 1.500.000 – Rp 3.000.000", "Rp 3.000.001 – Rp 5.000.000", "Rp 5.000.001 – Rp 10.000.000", "Di atas Rp 10.000.000", "Tidak bekerja / tidak berpenghasilan"] }}
               value={answers.q_ibu_income} otherValue={answers.q_ibu_income_other}
               onChange={onChange} onOtherChange={onChange} />
           </div>
