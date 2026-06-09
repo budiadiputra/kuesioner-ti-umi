@@ -1178,7 +1178,7 @@ export default function App() {
   if (submitted) {
     return (
       <div style={{ minHeight: "100vh", background: "#0d2240", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "'DM Sans', sans-serif", padding: "2rem" }}>
-        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
         <div style={{ textAlign: "center", maxWidth: "480px" }}>
           <div style={{ width: "72px", height: "72px", borderRadius: "50%", background: "linear-gradient(135deg, #0ea5e9, #38bdf8)", margin: "0 auto 1.5rem", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "2rem" }}>✓</div>
           <h2 style={{ fontFamily: "'DM Sans', sans-serif", color: "#1a3a6e", fontSize: "1.6rem", fontWeight: 700, marginBottom: "0.75rem" }}>Terima Kasih!</h2>
@@ -1195,7 +1195,7 @@ export default function App() {
 
   return (
     <div style={{ minHeight: "100vh", background: "#0d2240", fontFamily: "'DM Sans', sans-serif", color: "#1a2e4a", padding: "2rem 1rem" }}>
-      <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
       <div style={{ maxWidth: "640px", margin: "0 auto" }}>
 
         {/* Header */}
@@ -1212,7 +1212,7 @@ export default function App() {
         <div style={{ background: "#ffffff", border: "1px solid #0f2a40", borderRadius: "16px", padding: "2rem", marginBottom: "1.5rem" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1.75rem" }}>
             <span style={{ fontSize: "1.1rem", color: "#2563eb", lineHeight: 1 }}>{section.icon}</span>
-            <h2 style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "1rem", fontWeight: 700, color: "#1a3a6e", margin: 0, letterSpacing: "0.01em", textTransform: "uppercase" }}>{section.title}</h2>
+            <h2 style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.78rem", fontWeight: 700, color: "#0f2d6b", margin: 0, letterSpacing: "0.12em", textTransform: "uppercase" }}>{section.title}</h2>
           </div>
           {step === 0 && <SectionA answers={answers} onChange={handleChange} />}
           {step === 1 && <SectionB answers={answers} onChange={handleChange} />}
