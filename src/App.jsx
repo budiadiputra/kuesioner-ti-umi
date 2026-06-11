@@ -649,6 +649,9 @@ function WilayahSelect({ prefix, values, onChange }) {
   const [loadingKab, setLoadingKab] = useState(false);
   const [loadingKec, setLoadingKec] = useState(false);
   const [loadingKel, setLoadingKel] = useState(false);
+  const [errKab, setErrKab] = useState(false);
+  const [errKec, setErrKec] = useState(false);
+  const [errKel, setErrKel] = useState(false);
 
   const provId = values[prefix + "_provinsi_id"] || "";
   const kabId  = values[prefix + "_kabupaten_id"] || "";
@@ -659,38 +662,43 @@ function WilayahSelect({ prefix, values, onChange }) {
 
   useEffect(() => {
     if (!provId) { setKabList([]); return; }
-    setLoadingKab(true);
+    setLoadingKab(true); setErrKab(false);
     fetch(`${BASE}/regencies/${provId}.json`)
-      .then(r => r.json()).then(d => { setKabList(d); setLoadingKab(false); })
-      .catch(() => setLoadingKab(false));
+      .then(r => { if (!r.ok) throw new Error(); return r.json(); })
+      .then(d => { setKabList(d); setLoadingKab(false); })
+      .catch(() => { setLoadingKab(false); setErrKab(true); });
   }, [provId]);
 
   useEffect(() => {
     if (!kabId) { setKecList([]); return; }
-    setLoadingKec(true);
+    setLoadingKec(true); setErrKec(false);
     fetch(`${BASE}/districts/${kabId}.json`)
-      .then(r => r.json()).then(d => { setKecList(d); setLoadingKec(false); })
-      .catch(() => setLoadingKec(false));
+      .then(r => { if (!r.ok) throw new Error(); return r.json(); })
+      .then(d => { setKecList(d); setLoadingKec(false); })
+      .catch(() => { setLoadingKec(false); setErrKec(true); });
   }, [kabId]);
 
   useEffect(() => {
     if (!kecId) { setKelList([]); return; }
-    setLoadingKel(true);
+    setLoadingKel(true); setErrKel(false);
     fetch(`${BASE}/villages/${kecId}.json`)
-      .then(r => r.json()).then(d => { setKelList(d); setLoadingKel(false); })
-      .catch(() => setLoadingKel(false));
+      .then(r => { if (!r.ok) throw new Error(); return r.json(); })
+      .then(d => { setKelList(d); setLoadingKel(false); })
+      .catch(() => { setLoadingKel(false); setErrKel(true); });
   }, [kecId]);
 
   const sel = {
-    width: "100%", padding: "0.75rem 1rem", background: "#f0f5fc",
-    border: "1px solid #dbe6f5", borderRadius: "8px", color: "#1a2e4a",
+    width: "100%", padding: "0.75rem 1rem", background: "#f8fafd",
+    border: "1.5px solid #d0e2f4", borderRadius: "10px", color: "#1a2e4a",
     outline: "none", boxSizing: "border-box",
     fontFamily: "'DM Sans', sans-serif", fontSize: "0.88rem", marginBottom: "0.6rem",
+    appearance: "auto",
   };
-  const lbl = { fontSize: "0.78rem", color: "#5a7090", marginBottom: "0.2rem", fontWeight: 500, display: "block" };
+  const lbl = { fontSize: "0.78rem", color: "#5a7090", marginBottom: "0.3rem", fontWeight: 600, display: "block" };
+  const errStyle = { fontSize: "0.75rem", color: "#e05", marginTop: "-0.4rem", marginBottom: "0.4rem" };
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "0.1rem" }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "0.4rem" }}>
       <label style={lbl}>Provinsi</label>
       <select style={{ ...sel, cursor: "pointer" }} value={provId}
         onChange={(e) => {
@@ -700,6 +708,7 @@ function WilayahSelect({ prefix, values, onChange }) {
           onChange(prefix + "_kabupaten", ""); onChange(prefix + "_kabupaten_id", "");
           onChange(prefix + "_kecamatan", ""); onChange(prefix + "_kecamatan_id", "");
           onChange(prefix + "_kelurahan", "");
+          setKabList([]); setKecList([]); setKelList([]);
         }}>
         <option value="">— Pilih Provinsi —</option>
         {PROVINCES_API.map(p => <option key={p.id} value={p.id}>{p.name}</option>)}
@@ -713,8 +722,9 @@ function WilayahSelect({ prefix, values, onChange }) {
           onChange(prefix + "_kabupaten", opt.text); onChange(prefix + "_kabupaten_id", e.target.value);
           onChange(prefix + "_kecamatan", ""); onChange(prefix + "_kecamatan_id", "");
           onChange(prefix + "_kelurahan", "");
+          setKecList([]); setKelList([]);
         }}>
-        <option value="">{loadingKab ? "Memuat data..." : "— Pilih Kabupaten/Kota —"}</option>
+        <option value="">{loadingKab ? "⏳ Memuat..." : errKab ? "⚠ Gagal memuat, coba lagi" : "— Pilih Kabupaten/Kota —"}</option>
         {kabList.map(k => <option key={k.id} value={k.id}>{k.name}</option>)}
       </select>
 
@@ -725,8 +735,9 @@ function WilayahSelect({ prefix, values, onChange }) {
           const opt = e.target.options[e.target.selectedIndex];
           onChange(prefix + "_kecamatan", opt.text); onChange(prefix + "_kecamatan_id", e.target.value);
           onChange(prefix + "_kelurahan", "");
+          setKelList([]);
         }}>
-        <option value="">{loadingKec ? "Memuat data..." : "— Pilih Kecamatan —"}</option>
+        <option value="">{loadingKec ? "⏳ Memuat..." : errKec ? "⚠ Gagal memuat, coba lagi" : "— Pilih Kecamatan —"}</option>
         {kecList.map(k => <option key={k.id} value={k.id}>{k.name}</option>)}
       </select>
 
@@ -734,7 +745,7 @@ function WilayahSelect({ prefix, values, onChange }) {
       <select style={{ ...sel, cursor: kecId ? "pointer" : "not-allowed", opacity: kecId ? 1 : 0.5 }}
         value={kel} disabled={!kecId}
         onChange={(e) => onChange(prefix + "_kelurahan", e.target.value)}>
-        <option value="">{loadingKel ? "Memuat data..." : "— Pilih Kelurahan/Desa —"}</option>
+        <option value="">{loadingKel ? "⏳ Memuat..." : errKel ? "⚠ Gagal memuat, coba lagi" : "— Pilih Kelurahan/Desa —"}</option>
         {kelList.map(k => <option key={k.id} value={k.name}>{k.name}</option>)}
       </select>
     </div>
