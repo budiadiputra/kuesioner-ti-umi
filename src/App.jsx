@@ -911,10 +911,26 @@ function SectionA({ answers, onChange }) {
           onBlur={(e) => (e.target.style.borderColor = "#c8ddf0")} />
       </div>
 
+      {/* NIM */}
+      <div>
+        <p style={{ fontSize: "0.92rem", color: "#1e3d6e", fontWeight: 500, marginBottom: "0.75rem" }}>
+          <span style={{ color: "#0ea5e9", marginRight: "0.4rem" }}>2.</span>NIM (Nomor Induk Mahasiswa)
+        </p>
+        <input
+          style={baseInput}
+          placeholder="Contoh: 09320220001"
+          inputMode="numeric"
+          value={answers.nim || ""}
+          onChange={(e) => onChange("nim", e.target.value.replace(/[^0-9]/g, ""))}
+          onFocus={(e) => (e.target.style.borderColor = "#0ea5e9")}
+          onBlur={(e) => (e.target.style.borderColor = "#c8ddf0")}
+        />
+      </div>
+
       {/* Jenis Kelamin */}
       <div>
         <p style={{ fontSize: "0.92rem", color: "#1e3d6e", fontWeight: 500, marginBottom: "0.75rem" }}>
-          <span style={{ color: "#0ea5e9", marginRight: "0.4rem" }}>2.</span>Jenis Kelamin
+          <span style={{ color: "#0ea5e9", marginRight: "0.4rem" }}>3.</span>Jenis Kelamin
         </p>
         <RadioWithOther
           q={{ id: "q2", options: ["Laki-laki", "Perempuan"] }}
