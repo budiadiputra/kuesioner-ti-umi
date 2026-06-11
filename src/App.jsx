@@ -643,53 +643,100 @@ const PROVINCES_API = [
 ];
 
 function WilayahSelect({ prefix, values, onChange }) {
-  const prov = values[prefix + "_provinsi"] || "";
-  const kab = values[prefix + "_kabupaten"] || "";
-  const kec = values[prefix + "_kecamatan"] || "";
-  const kel = values[prefix + "_kelurahan"] || "";
-  const kabList = prov ? (WILAYAH[prov] || []).sort() : [];
+  const [kabList, setKabList] = useState([]);
+  const [kecList, setKecList] = useState([]);
+  const [kelList, setKelList] = useState([]);
+  const [loadingKab, setLoadingKab] = useState(false);
+  const [loadingKec, setLoadingKec] = useState(false);
+  const [loadingKel, setLoadingKel] = useState(false);
 
-  const baseInput = {
-    width: "100%",
-    padding: "0.75rem 1rem",
-    background: "#f0f5fc",
-    border: "1px solid #1e3a5f",
-    borderRadius: "8px",
-    color: "#1a2e4a",
-    outline: "none",
-    boxSizing: "border-box",
-    fontFamily: "'DM Sans', sans-serif",
-    fontSize: "0.88rem",
-    marginBottom: "0.6rem",
+  const provId = values[prefix + "_provinsi_id"] || "";
+  const kabId  = values[prefix + "_kabupaten_id"] || "";
+  const kecId  = values[prefix + "_kecamatan_id"] || "";
+  const kel    = values[prefix + "_kelurahan"] || "";
+
+  const BASE = "https://emsifa.github.io/api-wilayah-indonesia/api";
+
+  useEffect(() => {
+    if (!provId) { setKabList([]); return; }
+    setLoadingKab(true);
+    fetch(`${BASE}/regencies/${provId}.json`)
+      .then(r => r.json()).then(d => { setKabList(d); setLoadingKab(false); })
+      .catch(() => setLoadingKab(false));
+  }, [provId]);
+
+  useEffect(() => {
+    if (!kabId) { setKecList([]); return; }
+    setLoadingKec(true);
+    fetch(`${BASE}/districts/${kabId}.json`)
+      .then(r => r.json()).then(d => { setKecList(d); setLoadingKec(false); })
+      .catch(() => setLoadingKec(false));
+  }, [kabId]);
+
+  useEffect(() => {
+    if (!kecId) { setKelList([]); return; }
+    setLoadingKel(true);
+    fetch(`${BASE}/villages/${kecId}.json`)
+      .then(r => r.json()).then(d => { setKelList(d); setLoadingKel(false); })
+      .catch(() => setLoadingKel(false));
+  }, [kecId]);
+
+  const sel = {
+    width: "100%", padding: "0.75rem 1rem", background: "#f0f5fc",
+    border: "1px solid #dbe6f5", borderRadius: "8px", color: "#1a2e4a",
+    outline: "none", boxSizing: "border-box",
+    fontFamily: "'DM Sans', sans-serif", fontSize: "0.88rem", marginBottom: "0.6rem",
   };
+  const lbl = { fontSize: "0.78rem", color: "#5a7090", marginBottom: "0.2rem", fontWeight: 500, display: "block" };
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "0.1rem" }}>
-      <label style={{ fontSize: "0.78rem", color: "#5a7090", marginBottom: "0.2rem" }}>Provinsi</label>
-      <select style={{ ...baseInput, cursor: "pointer", color: prov ? "#1a2e4a" : "#8aabcc" }}
-        value={prov} onChange={(e) => { onChange(prefix + "_provinsi", e.target.value); onChange(prefix + "_kabupaten", ""); }}>
+      <label style={lbl}>Provinsi</label>
+      <select style={{ ...sel, cursor: "pointer" }} value={provId}
+        onChange={(e) => {
+          const opt = e.target.options[e.target.selectedIndex];
+          onChange(prefix + "_provinsi", opt.text);
+          onChange(prefix + "_provinsi_id", e.target.value);
+          onChange(prefix + "_kabupaten", ""); onChange(prefix + "_kabupaten_id", "");
+          onChange(prefix + "_kecamatan", ""); onChange(prefix + "_kecamatan_id", "");
+          onChange(prefix + "_kelurahan", "");
+        }}>
         <option value="">— Pilih Provinsi —</option>
-        {PROVINCES.map(p => <option key={p} value={p} style={{ background: "#f0f5fc" }}>{p}</option>)}
+        {PROVINCES_API.map(p => <option key={p.id} value={p.id}>{p.name}</option>)}
       </select>
 
-      <label style={{ fontSize: "0.78rem", color: "#5a7090", marginBottom: "0.2rem" }}>Kabupaten / Kota</label>
-      <select style={{ ...baseInput, cursor: prov ? "pointer" : "not-allowed", color: kab ? "#1a2e4a" : "#8aabcc", opacity: prov ? 1 : 0.5 }}
-        value={kab} disabled={!prov} onChange={(e) => onChange(prefix + "_kabupaten", e.target.value)}>
-        <option value="">— Pilih Kabupaten/Kota —</option>
-        {kabList.map(k => <option key={k} value={k} style={{ background: "#f0f5fc" }}>{k}</option>)}
+      <label style={lbl}>Kabupaten / Kota</label>
+      <select style={{ ...sel, cursor: provId ? "pointer" : "not-allowed", opacity: provId ? 1 : 0.5 }}
+        value={kabId} disabled={!provId}
+        onChange={(e) => {
+          const opt = e.target.options[e.target.selectedIndex];
+          onChange(prefix + "_kabupaten", opt.text); onChange(prefix + "_kabupaten_id", e.target.value);
+          onChange(prefix + "_kecamatan", ""); onChange(prefix + "_kecamatan_id", "");
+          onChange(prefix + "_kelurahan", "");
+        }}>
+        <option value="">{loadingKab ? "Memuat data..." : "— Pilih Kabupaten/Kota —"}</option>
+        {kabList.map(k => <option key={k.id} value={k.id}>{k.name}</option>)}
       </select>
 
-      <label style={{ fontSize: "0.78rem", color: "#5a7090", marginBottom: "0.2rem" }}>Kecamatan</label>
-      <input style={baseInput} placeholder="Ketik nama kecamatan..." value={kec}
-        onChange={(e) => onChange(prefix + "_kecamatan", e.target.value)}
-        onFocus={(e) => (e.target.style.borderColor = "#0ea5e9")}
-        onBlur={(e) => (e.target.style.borderColor = "#c8ddf0")} />
+      <label style={lbl}>Kecamatan</label>
+      <select style={{ ...sel, cursor: kabId ? "pointer" : "not-allowed", opacity: kabId ? 1 : 0.5 }}
+        value={kecId} disabled={!kabId}
+        onChange={(e) => {
+          const opt = e.target.options[e.target.selectedIndex];
+          onChange(prefix + "_kecamatan", opt.text); onChange(prefix + "_kecamatan_id", e.target.value);
+          onChange(prefix + "_kelurahan", "");
+        }}>
+        <option value="">{loadingKec ? "Memuat data..." : "— Pilih Kecamatan —"}</option>
+        {kecList.map(k => <option key={k.id} value={k.id}>{k.name}</option>)}
+      </select>
 
-      <label style={{ fontSize: "0.78rem", color: "#5a7090", marginBottom: "0.2rem" }}>Kelurahan / Desa</label>
-      <input style={baseInput} placeholder="Ketik nama kelurahan/desa..." value={kel}
-        onChange={(e) => onChange(prefix + "_kelurahan", e.target.value)}
-        onFocus={(e) => (e.target.style.borderColor = "#0ea5e9")}
-        onBlur={(e) => (e.target.style.borderColor = "#c8ddf0")} />
+      <label style={lbl}>Kelurahan / Desa</label>
+      <select style={{ ...sel, cursor: kecId ? "pointer" : "not-allowed", opacity: kecId ? 1 : 0.5 }}
+        value={kel} disabled={!kecId}
+        onChange={(e) => onChange(prefix + "_kelurahan", e.target.value)}>
+        <option value="">{loadingKel ? "Memuat data..." : "— Pilih Kelurahan/Desa —"}</option>
+        {kelList.map(k => <option key={k.id} value={k.name}>{k.name}</option>)}
+      </select>
     </div>
   );
 }
@@ -878,7 +925,7 @@ function SectionA({ answers, onChange }) {
       {/* Asal Sekolah */}
       <div>
         <p style={{ fontSize: "0.92rem", color: "#1e3d6e", fontWeight: 500, marginBottom: "0.75rem" }}>
-          <span style={{ color: "#0ea5e9", marginRight: "0.4rem" }}>3.</span>Asal Sekolah / SMA / SMK
+          <span style={{ color: "#0ea5e9", marginRight: "0.4rem" }}>4.</span>Asal Sekolah / SMA / SMK
         </p>
         <input style={baseInput} placeholder="Nama sekolah asal"
           value={answers.q3 || ""} onChange={(e) => onChange("q3", e.target.value)}
@@ -889,7 +936,7 @@ function SectionA({ answers, onChange }) {
       {/* Asal Daerah */}
       <div>
         <p style={{ fontSize: "0.92rem", color: "#1e3d6e", fontWeight: 500, marginBottom: "0.75rem" }}>
-          <span style={{ color: "#0ea5e9", marginRight: "0.4rem" }}>4.</span>Asal Daerah
+          <span style={{ color: "#0ea5e9", marginRight: "0.4rem" }}>5.</span>Asal Daerah
         </p>
         <WilayahSelect prefix="asal" values={answers} onChange={onChange} />
       </div>
@@ -897,7 +944,7 @@ function SectionA({ answers, onChange }) {
       {/* Alamat Domisili */}
       <div>
         <p style={{ fontSize: "0.92rem", color: "#1e3d6e", fontWeight: 500, marginBottom: "0.75rem" }}>
-          <span style={{ color: "#0ea5e9", marginRight: "0.4rem" }}>5.</span>Alamat Domisili Saat Ini
+          <span style={{ color: "#0ea5e9", marginRight: "0.4rem" }}>6.</span>Alamat Domisili Saat Ini
         </p>
         <WilayahSelect prefix="domisili" values={answers} onChange={onChange} />
       </div>
@@ -905,7 +952,7 @@ function SectionA({ answers, onChange }) {
       {/* Status Mahasiswa */}
       <div>
         <p style={{ fontSize: "0.92rem", color: "#1e3d6e", fontWeight: 500, marginBottom: "0.75rem" }}>
-          <span style={{ color: "#0ea5e9", marginRight: "0.4rem" }}>6.</span>Status Mahasiswa
+          <span style={{ color: "#0ea5e9", marginRight: "0.4rem" }}>7.</span>Status Mahasiswa
         </p>
         <RadioWithOther
           q={{ id: "q5", options: ["Mahasiswa Baru (Semester 1–2)", "Mahasiswa Aktif (Semester 3–6)", "Mahasiswa Tingkat Akhir (Semester 7+)", "Lainnya"] }}
@@ -1142,6 +1189,7 @@ function SectionE({ answers, onChange }) {
 function canProceedSection(step, answers) {
   if (step === 0) {
     return answers.q1?.trim() &&
+      answers.nim?.trim() &&
       answers.q2 &&
       answers.q3?.trim() &&
       answers.asal_provinsi && answers.asal_kabupaten && answers.asal_kecamatan?.trim() && answers.asal_kelurahan?.trim() &&
