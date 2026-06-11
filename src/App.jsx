@@ -649,42 +649,64 @@ function WilayahSelect({ prefix, values, onChange }) {
   const [loadingKab, setLoadingKab] = useState(false);
   const [loadingKec, setLoadingKec] = useState(false);
   const [loadingKel, setLoadingKel] = useState(false);
-  const [errKab, setErrKab] = useState(false);
-  const [errKec, setErrKec] = useState(false);
-  const [errKel, setErrKel] = useState(false);
 
   const provId = values[prefix + "_provinsi_id"] || "";
   const kabId  = values[prefix + "_kabupaten_id"] || "";
   const kecId  = values[prefix + "_kecamatan_id"] || "";
   const kel    = values[prefix + "_kelurahan"] || "";
 
-  const BASE = "https://emsifa.github.io/api-wilayah-indonesia/api";
+  const BASE = "https://api.cahyadsn.com";
 
   useEffect(() => {
     if (!provId) { setKabList([]); return; }
-    setLoadingKab(true); setErrKab(false);
-    fetch(`${BASE}/regencies/${provId}.json`)
-      .then(r => { if (!r.ok) throw new Error(); return r.json(); })
-      .then(d => { setKabList(d); setLoadingKab(false); })
-      .catch(() => { setLoadingKab(false); setErrKab(true); });
+    setLoadingKab(true);
+    fetch(`${BASE}/kabkota/${provId}`)
+      .then(r => r.json())
+      .then(d => {
+        const list = d.data || [];
+        setKabList(list.map(k => ({ id: k.kode, name: k.nama })));
+        setLoadingKab(false);
+      })
+      .catch(() => {
+        // fallback ke emsifa
+        fetch(`https://emsifa.github.io/api-wilayah-indonesia/api/regencies/${provId}.json`)
+          .then(r => r.json()).then(d => { setKabList(d); setLoadingKab(false); })
+          .catch(() => setLoadingKab(false));
+      });
   }, [provId]);
 
   useEffect(() => {
     if (!kabId) { setKecList([]); return; }
-    setLoadingKec(true); setErrKec(false);
-    fetch(`${BASE}/districts/${kabId}.json`)
-      .then(r => { if (!r.ok) throw new Error(); return r.json(); })
-      .then(d => { setKecList(d); setLoadingKec(false); })
-      .catch(() => { setLoadingKec(false); setErrKec(true); });
+    setLoadingKec(true);
+    fetch(`${BASE}/kecamatan/${kabId}`)
+      .then(r => r.json())
+      .then(d => {
+        const list = d.data || [];
+        setKecList(list.map(k => ({ id: k.kode, name: k.nama })));
+        setLoadingKec(false);
+      })
+      .catch(() => {
+        fetch(`https://emsifa.github.io/api-wilayah-indonesia/api/districts/${kabId}.json`)
+          .then(r => r.json()).then(d => { setKecList(d); setLoadingKec(false); })
+          .catch(() => setLoadingKec(false));
+      });
   }, [kabId]);
 
   useEffect(() => {
     if (!kecId) { setKelList([]); return; }
-    setLoadingKel(true); setErrKel(false);
-    fetch(`${BASE}/villages/${kecId}.json`)
-      .then(r => { if (!r.ok) throw new Error(); return r.json(); })
-      .then(d => { setKelList(d); setLoadingKel(false); })
-      .catch(() => { setLoadingKel(false); setErrKel(true); });
+    setLoadingKel(true);
+    fetch(`${BASE}/kelurahan/${kecId}`)
+      .then(r => r.json())
+      .then(d => {
+        const list = d.data || [];
+        setKelList(list.map(k => ({ id: k.kode, name: k.nama })));
+        setLoadingKel(false);
+      })
+      .catch(() => {
+        fetch(`https://emsifa.github.io/api-wilayah-indonesia/api/villages/${kecId}.json`)
+          .then(r => r.json()).then(d => { setKelList(d); setLoadingKel(false); })
+          .catch(() => setLoadingKel(false));
+      });
   }, [kecId]);
 
   const sel = {
@@ -692,10 +714,8 @@ function WilayahSelect({ prefix, values, onChange }) {
     border: "1.5px solid #d0e2f4", borderRadius: "10px", color: "#1a2e4a",
     outline: "none", boxSizing: "border-box",
     fontFamily: "'DM Sans', sans-serif", fontSize: "0.88rem", marginBottom: "0.6rem",
-    appearance: "auto",
   };
   const lbl = { fontSize: "0.78rem", color: "#5a7090", marginBottom: "0.3rem", fontWeight: 600, display: "block" };
-  const errStyle = { fontSize: "0.75rem", color: "#e05", marginTop: "-0.4rem", marginBottom: "0.4rem" };
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "0.4rem" }}>
@@ -724,7 +744,7 @@ function WilayahSelect({ prefix, values, onChange }) {
           onChange(prefix + "_kelurahan", "");
           setKecList([]); setKelList([]);
         }}>
-        <option value="">{loadingKab ? "⏳ Memuat..." : errKab ? "⚠ Gagal memuat, coba lagi" : "— Pilih Kabupaten/Kota —"}</option>
+        <option value="">{loadingKab ? "⏳ Memuat..." : "— Pilih Kabupaten/Kota —"}</option>
         {kabList.map(k => <option key={k.id} value={k.id}>{k.name}</option>)}
       </select>
 
@@ -737,7 +757,7 @@ function WilayahSelect({ prefix, values, onChange }) {
           onChange(prefix + "_kelurahan", "");
           setKelList([]);
         }}>
-        <option value="">{loadingKec ? "⏳ Memuat..." : errKec ? "⚠ Gagal memuat, coba lagi" : "— Pilih Kecamatan —"}</option>
+        <option value="">{loadingKec ? "⏳ Memuat..." : "— Pilih Kecamatan —"}</option>
         {kecList.map(k => <option key={k.id} value={k.id}>{k.name}</option>)}
       </select>
 
@@ -745,7 +765,7 @@ function WilayahSelect({ prefix, values, onChange }) {
       <select style={{ ...sel, cursor: kecId ? "pointer" : "not-allowed", opacity: kecId ? 1 : 0.5 }}
         value={kel} disabled={!kecId}
         onChange={(e) => onChange(prefix + "_kelurahan", e.target.value)}>
-        <option value="">{loadingKel ? "⏳ Memuat..." : errKel ? "⚠ Gagal memuat, coba lagi" : "— Pilih Kelurahan/Desa —"}</option>
+        <option value="">{loadingKel ? "⏳ Memuat..." : "— Pilih Kelurahan/Desa —"}</option>
         {kelList.map(k => <option key={k.id} value={k.name}>{k.name}</option>)}
       </select>
     </div>
