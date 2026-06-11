@@ -642,72 +642,19 @@ const PROVINCES_API = [
   {id:"95",name:"Papua Pegunungan"},{id:"96",name:"Papua Barat Daya"}
 ];
 
+const SULSEL_DATA = {"Kota Makassar": {"Biringkanaya": ["Pai", "Sudiang", "Sudiang Raya", "Bulurokeng", "Untia", "Daya"], "Bontoala": ["Bontoala", "Bontoala Parang", "Bontoala Tua", "Bunga Ejaya", "Gaddong", "Jongaya", "Layang", "Malimongan", "Malimongan Baru", "Parang", "Timungan Lompoa", "Wajo Baru"], "Kep. Sangkarrang": ["Barrang Caddi", "Barrang Lompo", "Kodingareng"], "Makassar": ["Baju Bodoa", "Ballaparang", "Bara-Baraya", "Bara-Baraya Selatan", "Bara-Baraya Timur", "Bara-Baraya Utara", "Barana", "Lariang Bangi", "Maccini", "Maccini Gusung", "Maccini Parang"], "Mamajang": ["Baji Mappakasunggu", "Bonto Lebang", "Karang Anyar", "Labuang Baji", "Lette", "Mamajang Dalam", "Mamajang Luar", "Mandala", "Maricaya Baru", "Pa'batang", "Tamparang Keke", "Ujung Pandang Baru"], "Manggala": ["Antang", "Batua", "Borong", "Buntusu", "Manggala", "Tamangapa"], "Mariso": ["Bontorannu", "Kunjung Mae", "Lette", "Mariso", "Mario", "Pa'baeng-baeng", "Panambungan", "Tamarunang", "Mattoangin"], "Panakkukang": ["Karampuang", "Karuwisi", "Karuwisi Utara", "Masale", "Pampang", "Pandang", "Panaikang", "Paropo", "Sinrijala", "Tamamaung", "Toddopuli"], "Rappocini": ["Ballaparang", "Banta-Bantaeng", "Bontomakkio", "Buakana", "Gunung Sari", "Karunrung", "Kassi-Kassi", "Mappala", "Rappocini", "Tidung"], "Tallo": ["Bunga Ejaya", "Kaluku Bodoa", "Lakkang", "La'latang", "Pannampu", "Rappojawa", "Rappokalling", "Suangga", "Tallo", "Tambua", "Wala-Walaya"], "Tamalanrea": ["Bira", "Kapasa", "Kapasa Raya", "Parangloe", "Tamalanrea", "Tamalanrea Indah", "Tamalanrea Jaya"], "Tamalate": ["Balang Baru", "Barombong", "Bongaya", "Jongaya", "Maccini Sombala", "Mangasa", "Mannuruki", "Pa'baeng-baeng", "Parang Tambung", "Tanjung Merdeka"], "Ujung Pandang": ["Bulo Gading", "Lae-Lae", "Lajangiru", "Losari", "Maloku", "Mangkura", "Pisang Selatan", "Pisang Utara"], "Ujung Tanah": ["Buloa", "Cambaya", "Gusung", "Totaka", "Tabaringan", "Ujung Tanah"], "Wajo": ["Ende", "Melayu", "Melayu Baru", "Pattunuang", "Mampu", "Butung"]}, "Kab. Gowa": {"Somba Opu": ["Batangkaluku", "Bontoramba", "Katangka", "Limbung", "Mawang", "Pandang-Pandang", "Romang Lompoa", "Romang Polong", "Samata", "Sungguminasa", "Tompobalang"], "Barombong": ["Barombong", "Biringala", "Kanjilo", "Lembang Parang", "Moncobalang", "Tinggimae"], "Pallangga": ["Bontoramba", "Julukanaya", "Julubori", "Julupamai", "Kampili", "Pallangga", "Pangkabinanga", "Parangbanoa", "Panyangkalang", "Taeng"], "Bajeng": ["Baju Bodoa", "Bone", "Bone-Bone", "Gentungan", "Lempangang", "Maccini Baji", "Maradekaya", "Paraikatte", "Parangluara", "Tangkebajeng", "Tubajeng"], "Bajeng Barat": ["Borimatangkasa", "Bontosunggu", "Gentungan", "Kalebajeng", "Manjalling", "Pabundukang"], "Bontonompo": ["Bontobiraeng", "Bontobiraeng Selatan", "Bontojaya", "Bontolangkasa", "Bontolangkasa Utara", "Bontonompo", "Kalaserena", "Romanglasa", "Salajangki", "Tinggimae"], "Bontonompo Selatan": ["Bontoramba", "Kalebarembang", "Loka", "Manjapai", "Pa'la'la", "Salajangki", "Sengka", "Tindang"], "Bontomarannu": ["Borongloe", "Bontomarannu", "Bontosunggu", "Bontotangnga", "Dobayya", "Nirannuang", "Sokkolia"], "Pattallassang": ["Borong Pa'la'la", "Jenemadinging", "Paccelekang", "Pallantikang", "Pattallassang", "Saukang", "Timbuseng"], "Parangloe": ["Belapunranga", "Borisallo", "Lanna", "Lonjoboko", "Malino", "Moncongloe", "Parangloe"], "Manuju": ["Bilalang", "Bolaromang", "Manuju", "Moncongloe", "Pa'bentengang", "Pattalikang", "Tamalatea"], "Tinggimoncong": ["Buluttana", "Gantarang", "Garassi", "Malino", "Pattapang", "Tompo Bulu"], "Tombolopao": ["Balassuka", "Erelembang", "Kanreapia", "Mamampang", "Tabbinjai", "Tombolopao", "Tonasa"], "Parigi": ["Bilanrengi", "Jonjo", "Majannang", "Manimbahoi", "Paralang", "Parigi"], "Bungaya": ["Bungaya", "Bungaya Barat", "Bissoloro", "Julubori", "Mangempang", "Rannaloe"], "Bontolempangan": ["Bontolempangan", "Bontomatene", "Bontosunggu", "Datara", "Eremerasa", "Mataallo", "Parangloe"], "Tompobulu": ["Balang", "Bontobiraeng", "Garing", "Malleleng", "Rappolemba", "Rappoala", "Tompobulu"], "Biringbulu": ["Baturappe", "Berutallasa", "Biringbulu", "Bontocini", "Buakkang", "Lauwa", "Parangloe"]}, "Kab. Maros": {"Mandai": ["Hasanuddin", "Baji Pamai", "Bontoa", "Bontomatene", "Tenrigangkae"], "Moncongloe": ["Bonto Bunga", "Lekopancing", "Moncongloe", "Moncongloe Bulu", "Moncongloe Lappara"], "Maros Baru": ["Adatongeng", "Allepolea", "Baju Bodoa", "Borikamase", "Pallantikang", "Sabila", "Taroada"], "Marusu": ["Alatengae", "Boto", "Marumpa", "Nisombalia", "Pattontongan", "Temmapaduae"], "Turikale": ["Adatongeng", "Alliritengae", "Borikamase", "Pettuadae", "Raya", "Taroada", "Turikale"], "Lau": ["Allepolea", "Alu Bilayya", "Barugae", "Bontomarannu", "Maccini Baji", "Soreang"], "Bontoa": ["Ampekale", "Bontoa", "Minasa Te'ne", "Pajukukang", "Salenrang", "Tunikamaseang"], "Bantimurung": ["Alatengae", "Bantimurung", "Baruga", "Leang-Leang", "Minasa Baji", "Pattanyamang", "Tukamasea"], "Simbang": ["Jenetaesa", "Minasa Baji", "Sambueja", "Simbang", "Tanete", "Toddolimae"], "Tanralili": ["Allaere", "Ammarang", "Benteng", "Borong", "Lekopancing", "Tanralili"], "Tompobulu": ["Benteng Gajah", "Bonto Manurung", "Pucak", "Tompobulu"], "Camba": ["Camba", "Cenrana", "Kelara", "Pattiro Deceng", "Sawaru", "Timpuseng"], "Cenrana": ["Cenrana", "Labuaja", "Limapoccoe", "Rompegading", "Samaenre", "Timpuseng"], "Mallawa": ["Barugae", "Benteng", "Bonto Manai", "Gattareng", "Laiya", "Mallawa"]}, "Kab. Takalar": {"Pattallassang": ["Bajeng", "Bontomanai", "Galesong", "Kalukuang", "Mappakasunggu", "Pattallassang", "Pa'la'la", "Soreang"], "Galesong": ["Galesong", "Galesong Baru", "Galesong Selatan", "Mappakalompo", "Tamalate"], "Galesong Utara": ["Aeng Batu-Batu", "Aeng Towa", "Bontokaddopepe", "Bonto Manai", "Mappakalompo", "Tamasaju", "Tamalate"], "Galesong Selatan": ["Bontomarannu", "Bonto Pa'la'la", "Kadatong", "Kalenna", "Mangalli", "Pa'la'la", "Towata"], "Sanrobone": ["Bontomanai", "Paddinging", "Sanrobone", "Ujung Baji"], "Mappakasunggu": ["Cikoang", "Laikang", "Manjapai", "Mappakasunggu", "Tamasaju"], "Mangarabombang": ["Aeng Batu-Batu", "Balangdatu", "Bentang", "Bilo", "Bontoparang", "Lengkese", "Laikang", "Punagaya"], "Polombangkeng Utara": ["Barugaya", "Bulukunyi", "Kale Ko'mara", "Ko'mara", "Massamaturu", "Palleko", "Pappa", "Tarowang"], "Polombangkeng Selatan": ["Bontokassi", "Borong Pa'la'la", "Lantang", "Lassang", "Lassang Barat", "Lengkese", "Malewang", "Pa'la'la", "Sabintang"]}, "Kab. Jeneponto": {"Binamu": ["Balang", "Bontoa", "Empoang", "Empoang Selatan", "Empoang Utara", "Kapita", "Pabiringa", "Sidenre", "Tanjung"], "Arungkeke": ["Arungkeke", "Arungkeke Pallantikang", "Baji Pa'mai", "Bulo-Bulo", "Kalumpang Loe", "Palajau"], "Bangkala": ["Bangkala", "Bontomanai", "Bontorannu", "Jenetallasa", "Kaluku", "Karassing", "Lebang Manai", "Lebang Manai Utara", "Mallasoro", "Mangepong"], "Bangkala Barat": ["Bontomanai", "Bontorea", "Kayuloe Barat", "Kayuloe Timur", "Laikang", "Pakka", "Tarowang"], "Batang": ["Arajang", "Baraya", "Batang", "Bontomanai", "Bululoe", "Sidenre", "Togo-Togo"], "Bontoramba": ["Bontoramba", "Kale Rante", "Kassi", "Lebang", "Lentu", "Maccini Baji", "Rumbia", "Sapanang"], "Kelara": ["Bontorea", "Jenetallasa", "Kapita", "Kelara", "Rumbia", "Tompobulu"], "Rumbia": ["Bontomanai", "Bontominasa", "Datara", "Kassi", "Lebang", "Rumbia", "Tompobulu"], "Tamalatea": ["Bontosunggu", "Calabae", "Kayuloe", "Pallantikang", "Panaikang", "Tamalatea", "Tanjung"], "Turatea": ["Bontoa", "Borong", "Bulogading", "Labuang Baji", "Lopa", "Pabiringa", "Turatea"]}, "Kab. Bantaeng": {"Bantaeng": ["Bonto Atu", "Bonto Lebang", "Lamalaka", "Letta", "Pallantikang", "Tappanjeng"], "Bissappu": ["Batu Karaeng", "Biangloe", "Bissappu", "Bonto Cinde", "Bonto Jai", "Bonto Langkasa", "Bonto Manurung", "Bonto Salluang", "Karaeng", "Kindang", "Pa'bentengang"], "Eremerasa": ["Barua", "Bonto Bulaeng", "Bonto Loe", "Bonto Manurung", "Kampala", "Papanloe", "Parangloe"], "Gantarangkeke": ["Bonto Marannu", "Bonto Matene", "Bonto Tangnga", "Gantarangkeke", "Mamampang", "Taccorong"], "Pajukukang": ["Bonto Jai", "Bonto Langkasa", "Bonto Lebang", "Bonto Sunggu", "Pajukukang", "Rappoa", "Tombolo"], "Sinoa": ["Bonto Bulaeng", "Bonto Loe", "Bonto Tiro", "Gunung Sejuk", "Sinoa"], "Tompobulu": ["Bonto Bulaeng", "Bonto Loe", "Bonto Marannu", "Bonto Tallasa", "Campaga", "Lembang Lohe", "Pattaneteang"], "Uluere": ["Bonto Bulaeng", "Bonto Karaeng", "Bonto Loe", "Bonto Marannu", "Ereng-Ereng", "Moti"]}, "Kab. Bulukumba": {"Ujung Bulu": ["Bintarore", "Caile", "Ela-Ela", "Kalumeme", "Loka", "Matekko", "Terang-Terang"], "Ujung Loe": ["Balleangin", "Balong", "Bontobulaeng", "Dannuang", "Garanta", "Lonrong", "Manyampa", "Padang", "Tamatto"], "Bonto Bahari": ["Ara", "Benjala", "Bira", "Darubiah", "Lembanna", "Tanaberu"], "Bonto Tiro": ["Batang", "Bontotiro", "Herlang", "Manjalling", "Onto", "Tri Tiro"], "Kajang": ["Batu Nilamung", "Bonto Baji", "Lembanna", "Lolisang", "Possi Tanah", "Sangkala", "Tambangan", "Tanah Jaya", "Tana Toa"], "Kindang": ["Borong", "Kindang", "Manjapai", "Mattoanging", "Tamatto", "Tibona"], "Rilau Ale": ["Bajiminasa", "Bontomacinna", "Bulo-Bulo", "Bulolohe", "Harapan", "Lonrong", "Palampang", "Pattaneteang", "Rilau Ale"], "Bulukumpa": ["Barugae", "Bontominasa", "Bulukumpa", "Jojjolo", "Kambuno", "Salassae", "Sapobonto"], "Gantarang": ["Bonto Tiro", "Bukit Harapan", "Gantarang", "Maccini Ayo", "Matekko", "Salajangki", "Sapo", "Tanah Harapan"]}, "Kab. Sinjai": {"Sinjai Utara": ["Bioa", "Bongki", "Bongki Lengkese", "Lappa", "Lamatti Riaja", "Lamatti Riattang", "Panciro", "Samaenre", "Tassililu"], "Sinjai Timur": ["Akkotengeng", "Biroro", "Lasiai", "Patalassang", "Pulau Harapan", "Saukang", "Saohiring", "Tongke-Tongke"], "Sinjai Selatan": ["Alenangka", "Batu Belerang", "Bikeru", "Bulupoddo", "Dairi", "Gareccing", "Palae", "Puncak", "Sangiasseri", "Turungan Baji"], "Sinjai Barat": ["Arabika", "Balakia", "Bonto Lempangan", "Gunung Perak", "Manipi", "Tassililu"], "Sinjai Tengah": ["Baru", "Bonto Katute", "Bukit Harapan", "Kanrung", "Kompang", "Loka", "Pattongko", "Saotengah"], "Sinjai Borong": ["Batu Belerang", "Biji Nangka", "Bonto Sinala", "Bulu Tellue", "Kassi", "Palangka"], "Bulupoddo": ["Bontosunggu", "Bulupoddo", "Duampanua", "Lamatti", "Mannanti"], "Tellu Limpoe": ["Baru-Baru", "Bikeru", "Bonto Tengnga", "Duampanua", "Mannanti", "Pattongko"], "Pulau Sembilan": ["Balocci Baru", "Kambara", "Kanalo I", "Kanalo II", "Padaelo", "Pulau Harapan"]}, "Kab. Bone": {"Tanete Riattang": ["Bajoe", "Biru", "Bukaka", "Macege", "Manurungnge", "Ta"], "Tanete Riattang Barat": ["Bulu Tempe", "Lappassi", "Macanang", "Majang", "Masumpu", "Polewali", "Tibojong"], "Tanete Riattang Timur": ["Bajoe", "Cellu", "Lonrae", "Panyula", "Toro"], "Awangpone": ["Awang Tangka", "Cabalu", "Cabbeng", "Mallari", "Pammase", "Pompanua", "Pompanua Riattang", "Pude", "Tobenteng"], "Barebbo": ["Apala", "Balle", "Barakkae", "Barebbo", "Binuang", "Biru", "Kading", "Lampoko", "Macanre", "Palakka", "Pattiro", "Samaenre", "Watang Palakka"], "Kahu": ["Arallae", "Balle", "Biru", "Garessi", "Hulo", "Jompie", "Kahu", "Kanuku", "Lalepo", "Lemo", "Mattaro Purae", "Palaka"], "Kajuara": ["Angkue", "Bulu Sirua", "Buareng", "Kajuara", "Laburasseng", "Massangkae", "Matajang", "Pao", "Pude", "Tuju"], "Lamuru": ["Barakkae", "Batu Putih", "Bojo", "Lalebata", "Lamuru", "Mattaro Walie", "Pakkasalo", "Poleonro", "Sengkang"], "Mare": ["Arallae", "Batu Gading", "Bonto Masunggu", "Bulie", "Kading", "Lappa", "Mare", "Mattaro Purae", "Pakkasalo", "Salomekko", "Tellongeng"], "Palakka": ["Bacu", "Cinnong", "Lemo", "Mattiro Walie", "Palakka", "Paccing", "Pattiro"], "Salomekko": ["Batu Gading", "Bulie", "Kading", "Lappa", "Palakka", "Salomekko"], "Ulaweng": ["Ajanglalo", "Bola Bulu", "Cege", "Cinnong", "Lilina Ajangale", "Poleonro", "Welado"], "Bengo": ["Batu Gading", "Bengo", "Cege", "Lonrae", "Lallatang", "Mattaro Walie", "Pallime"], "Tellu Siattinge": ["Ajangale", "Awo", "Cege", "Cinnong", "Timurung", "Tokaseng", "Watang Cina"]}, "Kab. Luwu": {"Belopa": ["Bassiang", "Bassiang Timur", "Belopa", "Belopa Utara", "Pabbaresseng", "Senga", "Senga Selatan"], "Bua": ["Bua", "Bua Cina", "Bua Setia", "Cakkeawo", "Jawi-Jawi", "Murante", "Posi Dama", "Suli Barat"], "Kamanre": ["Kamanre", "Kendekan", "Mario", "Minna", "Sabe", "Walenrang"], "Lamasi": ["Buntu Batu", "Bosso Timur", "Lamasi", "Lamasi Timur", "Posi Dama", "Pompengan Pantai"], "Larompong": ["Boneposi", "Larompong", "Larompong Selatan", "Mario", "Posi Dama", "Tobajeng"], "Noling": ["Buntu Batu", "Mario", "Noling", "Posi Dama", "Rante Belu", "Suli"], "Ponrang": ["Buntu Batu", "Mario", "Padang Subur", "Ponrang", "Ponrang Selatan", "Rante Belu"], "Suli": ["Buntu Batu", "Mario", "Posi Dama", "Suli", "Suli Barat"], "Walenrang": ["Buntu Batu", "Kamanre", "Mario", "Tirowali", "Walenrang"], "Walenrang Barat": ["Buntu Batu", "Mario", "Tirowali", "Walenrang Barat"], "Walenrang Timur": ["Buntu Batu", "Mario", "Suli", "Walenrang Timur"], "Walenrang Utara": ["Buntu Batu", "Mario", "Suli", "Walenrang Utara"]}, "Kota Palopo": {"Bara": ["Battang", "Battang Barat", "Bukit Indah", "Lebang", "Rampoang", "Salubulo"], "Mungkajang": ["Latuppa", "Mungkajang", "Murante", "Songka", "Tomarundung"], "Sendana": ["Binturu", "Jaya", "Ponjalae", "Sendana", "Takkalasi"], "Telluwanua": ["Boting", "Maroangin", "Salubattang", "Sumarambu", "Telluwanua"], "Wara": ["Amassangan", "Boting", "Dangerakko", "Lagaligo", "Pentojangan", "Ponjalae", "To Bulung", "Ulu Daya"], "Wara Barat": ["Battang", "Dangerakko", "Mancani", "Salupao", "Takkalasi"], "Wara Selatan": ["Batupasi", "Boting", "Limbong", "Penggoli", "Sampoddo", "To Bulung"], "Wara Timur": ["Ararangan", "Balandai", "Benteng", "Lagaligo", "Malatunrung", "Ponjalae"], "Wara Utara": ["Balandai", "Binturu", "Bone", "Bukit Indah", "Ponjalae", "Sabbamparu"]}, "Kota Parepare": {"Bacukiki": ["Galung Maloang", "Kampung Baru", "Lompoe", "Sumpang Minangae"], "Bacukiki Barat": ["Cappa Galung", "Labukkang", "Lakessi", "Lumpue", "Soreang", "Tiro Sompe"], "Soreang": ["Bukit Harapan", "Kampung Baru", "Lapadde", "Lemoe", "Madising Na Mario", "Watang Soreang"], "Ujung": ["Bumi Harapan", "Cempae", "Lakessi", "Mallusetasi", "Sumpang Minangae", "Ujung Lare", "Ujung Sabbang"]}, "Kab. Wajo": {"Tempe": ["Atakkae", "Lapongkoda", "Maddukelleng", "Pakkanna", "Pattirosompe", "Siengkang", "Sompe", "Tancung", "Tobarakka", "Wiring Tasi"], "Belawa": ["Akkajeng", "Belawa", "Botto", "Coppobulu", "Mamminasae", "Menge", "Paroto", "Siwa"], "Bola": ["Bola", "Cinnong", "Lawa", "Pallima", "Paria", "Peneki", "Tempangeng"], "Gilireng": ["Arajang", "Gilireng", "Kalola", "Leppangeng", "Maddukelleng", "Sarapao"], "Majauleng": ["Botto", "Cina", "Laerung", "Lapajung", "Larokenga", "Leppangeng", "Macero", "Mamminasae", "Paria", "Pattirosompe", "Sabbangparu", "Ureng"], "Pammana": ["Botto", "Cinnong", "Laburasseng", "Lampulung", "Lempa", "Pammana", "Simpursia", "Tobatang"], "Pitumpanua": ["Abbokongeng", "Barang", "Bulete", "Cinnongtabi", "Lagoari", "Pitumpanua", "Tobarakka", "Ujung Baru"], "Sabbangparu": ["Cinnong", "Laburasseng", "Lapajung", "Maddukelleng", "Mario", "Paropo", "Sabbangparu"], "Sajoanging": ["Gilireng", "Maddukelleng", "Matingang", "Pattirosompe", "Sajoanging", "Tinco"], "Takkalalla": ["Cinnong", "Leppangeng", "Sabbangparu", "Takkalalla", "Tocina", "Toddang Pulu"], "Tanasitolo": ["Atakkae", "Botto", "Cinnong", "Kampiri", "Maccirinna", "Mattirowalie", "Pising", "Tancung", "Tobarakka"]}, "Kab. Soppeng": {"Lalabata": ["Bila", "Botto", "Lalabata Riaja", "Lalabata Rilau", "Ompo", "Salokaraja", "Lapajung", "Mattabulu"], "Lilirilau": ["Baringeng", "Belo", "Cabenge", "Kebo", "Limpomajang", "Pesse", "Tetewatu"], "Liliriaja": ["Gattareng", "Labokong", "Marioriwawo", "Matingang", "Panca Rijang", "Timusu"], "Marioriawa": ["Attang Salo", "Bulue", "Labokong", "Manorang Salo", "Marioriawa", "Pising"], "Marioriwawo": ["Belo", "Gattareng", "Goarie", "Labokong", "Marioriwawo", "Timusu"], "Donri-Donri": ["Pesse", "Donri-Donri", "Lalabata Riaja", "Sering", "Soga", "Sunggumanai"], "Ganra": ["Enrekang", "Ganra", "Kebo", "Labokong", "Lompulle"], "Citta": ["Barang", "Citta", "Labokong", "Limpomajang", "Paseno"]}, "Kab. Barru": {"Barru": ["Coppo", "Mangkoso", "Palakka", "Siawung", "Sumpang Binangae", "Tompo"], "Balusu": ["Balusu", "Binuang", "Madello", "Palludda", "Pujananting"], "Mallusetasi": ["Cilellang", "Kupa", "Lawallu", "Mallawa", "Palanro", "Sumpang Binangae"], "Pujananting": ["Gattareng", "Harapan", "Jangan-Jangan", "Pujananting", "Palattae"], "Tanete Rilau": ["Lalolang", "Lipukasi", "Pancana", "Tanete", "Tellu Limpoe"], "Tanete Riaja": ["Benteng", "Harapan", "Kading", "Lompo Tengah", "Lompo Riaja", "Palakka"], "Soppeng Riaja": ["Ajakkang", "Batupute", "Cilellang", "Jangan-Jangan", "Mangkoso", "Siddo"], "Palanro": ["Palanro", "Sepe", "Siddo", "Sumpang Binangae", "Tompo"]}, "Kab. Pangkajene dan Kepulauan": {"Pangkajene": ["Bonto Perak", "Bungoro", "Jagong", "Mappasaile", "Padoang-Doangan", "Pampanua", "Sibatua", "Tekolabbua"], "Bungoro": ["Boriappaka", "Bowong Cindea", "Bungoro", "Mangilu", "Samalewa", "Sapanang", "Tabo-Tabo"], "Labakkang": ["Bonto Manai", "Bonto Manurung", "Boriappaka", "Labakkang", "Mangallekana", "Patallassang", "Taraweang"], "Ma'rang": ["Attang Salo", "Boriappaka", "Bungoro", "Ma'rang", "Paddoang-Doangan", "Tamangapa", "Taraweang"], "Segeri": ["Bone", "Boriappaka", "Segeri", "Bone-Bone", "Pitue", "Polewali", "Talaka"], "Minasatene": ["Boriappaka", "Kabba", "Mangilu", "Minasatene", "Panaikang", "Parenreng", "Samalewa"], "Mandalle": ["Boriappaka", "Coppo", "Kana", "Mandalle", "Pitue", "Talaka"], "Balocci": ["Balleangin", "Balocci Baru", "Bentenge", "Kassi", "Tompo Bulu"], "Tondong Tallasa": ["Bantimurung", "Malaka", "Tondong Tallasa", "Tompo Bulu"], "Liukang Tupabbiring": ["Mattiro Baji", "Mattiro Bombang", "Mattiro Deceng", "Mattiro Dolangeng", "Mattiro Kanja", "Mattiro Langi", "Mattiro Sompe", "Mattiro Ujung"], "Liukang Kalmas": ["Kalmas", "Kanyunyung", "Liukang Kalmas", "Massalima"], "Liukang Tangaya": ["Bala-Balakang", "Bangko-Bangkoang", "Doang-Doangange", "Gondong Bali", "Jinato", "Satanger", "Tambolongang"]}, "Kab. Pinrang": {"Watang Sawitto": ["Maccorawalie", "Penrang", "Sawitto", "Salo", "Sepang", "Siparappe", "Tatae"], "Paleteang": ["Benteng", "Mamminasae", "Maroala", "Mattirotasi", "Paria", "Teppo"], "Tiroang": ["Bababulo", "Bababulo Utara", "Massewae", "Teppo", "Tiroang"], "Lembang": ["Betteng", "Bulo", "Kariango", "Lembang", "Massewae", "Sabbang Paru", "Sali-Sali"], "Batulappa": ["Batulappa", "Massepe", "Mattirowalie", "Pananrang", "Suppa"], "Suppa": ["Lotang Salo", "Mace", "Maritengngae", "Suppa", "Tasiwalie", "Wiring Tasi"], "Lanrisang": ["Amar", "Lanrisang", "Massewae", "Pananrang", "Sabbangparu"], "Mattiro Sompe": ["Langnga", "Lotang Salo", "Manisa", "Mattiro Sompe", "Pallameang", "Tasiwalie"], "Duampanua": ["Alitta", "Bababulo", "Benteng", "Bungi", "Cempa", "Duampanua", "Maroneng"], "Cempa": ["Cempa", "Cero", "Lanrisang", "Passeno", "Pincara"], "Mattiro Bulu": ["Alitta", "Cempa", "Langnga", "Mattiro Bulu", "Pallameang", "Sigi"], "Patampanua": ["Laleng Bata", "Massewae", "Patampanua", "Pincara", "Salipolo", "Sabbang Paru", "Sogi"]}, "Kab. Sidenreng Rappang": {"Maritengngae": ["Allakuang", "Bina", "Duampanua", "Kanyunyung", "Lakessi", "Massepe", "Rijang Pittu", "Siletto", "Tonrong Rijang", "Wala"], "Panca Rijang": ["Bina", "Lalabata", "Lawawoi", "Lemo", "Mappadeceng", "Rappang"], "Pitu Riawa": ["Bola Bulu", "Dua Pitue", "Mojong", "Pitu Riawa", "Talawe"], "Pitu Riase": ["Benteng", "Betao", "Betao Riase", "Dua Pitue", "Padangloang", "Pitu Riase"], "Dua Pitue": ["Bantisi", "Damai", "Dua Pitue", "Polewali", "Rappang", "Wanio"], "Baranti": ["Baranti", "Duampanua", "Kanyunyung", "Passeno", "Rijang Pittu", "Tonronge"], "Watang Pulu": ["Bola Bulu", "Duampanua", "Mojong", "Watang Pulu", "Bina"], "Kulo": ["Kulo", "Lawawoi", "Polewali", "Sereang", "Tonronge"], "Tellu Limpoe": ["Amparita", "Empagae", "Lawawoi", "Lerang-Lerang", "Tellu Limpoe"], "Wattang Sidenreng": ["Allakuang", "Damai", "Kanyunyung", "Massepe", "Paseno", "Wattang Sidenreng"], "Enrekang": ["Galonta", "Juppandang", "Kambiolangi", "Lewaja", "Puserren", "Ranga", "Talungeng"]}, "Kab. Luwu Utara": {"Masamba": ["Bone-Bone", "Kamiri", "Masamba", "Radda", "Tarobok"], "Sabbang": ["Kalotok", "Laba", "Padang Raya", "Pincara", "Sabbang", "Sabbang Selatan"], "Malangke": ["Bungadidi", "Kapidi", "Malangke", "Mario", "Patila", "Pombakka"], "Baebunta": ["Baebunta", "Baebunta Selatan", "Mario", "Tarobok", "Uraso"], "Sukamaju": ["Bone-Bone", "Cendana Hijau", "Harapan", "Polewali", "Sukamaju", "Wonorejo"]}, "Kab. Luwu Timur": {"Malili": ["Balantang", "Harapan", "Lakawali", "Malili", "Manggalung", "Wewangriu"], "Wotu": ["Bahoruru", "Dannuang", "Lampenai", "Ledu-Ledu", "Lera", "Manurung", "Tarengge", "Wotu"], "Burau": ["Bone Pute", "Burau", "Jalajja", "Lera", "Lewonu", "Libukan Mandiri", "Lumbewe", "Minanga", "Bone Lohe"], "Tomoni": ["Bayondo", "Harapan", "Manggala", "Oroue", "Tomoni", "Wonorejo"], "Tomoni Timur": ["Bayondo", "Cendana Hijau", "Harapan", "Puncak Indah", "Tomoni Timur", "Wonorejo"], "Kalaena": ["Harapan", "Kalena Kiri", "Kalaena", "Manggala", "Wanasari"], "Towuti": ["Asuli", "Baruga", "Bienaju", "Buangin", "Langkea Raya", "Mahalona", "Matompi", "Pekaloa", "Pewusoi", "Tokalimbo", "Towuti"], "Nuha": ["Magani", "Matano", "Nikkel", "Nuha", "Sorowako"], "Wasuponda": ["Bambalu", "Kawata", "Ledu-Ledu", "Wasuponda"], "Mangkutana": ["Harapan", "Kalosi", "Karambua", "Mangkutana", "Sindu", "Wonorejo"]}, "Kab. Toraja Utara": {"Rantepao": ["Buntu Datu", "Buntu Nanna", "Buntu Pepasan", "Kadundung", "Kole", "Mentirotiku", "Paniki", "Sarira", "Tallunglipu", "Tandung", "Tikala", "Tinoring"], "Sopai": ["Bamba", "Benteng Mamullu", "Lempo", "Pitung Penanian", "Sa'dan", "Sa'dan Malimbong", "Sa'dan Matallo", "Sapan", "Tallobamba"], "Balusu": ["Balusu", "Bebo", "Kaero", "Pangden", "Pitung Penanian", "Rantelemo"], "Nanggala": ["Deri", "Eran Batu", "Kalimbuang", "Nanggala", "Pitung Penanian", "Tallunglipu"], "Buntao": ["Buntao", "Dua Datu", "Kadundung", "Palangi", "Sarira", "Sereale"], "Sesean": ["Bori", "Bori Ranteletok", "Nonongan", "Sesean", "Sesean Suloara", "Sereale", "Tallunglipu"], "Tikala": ["Baruppu", "Benteng Mamullu", "Tikala", "Tikala Assing", "Tikala Baru", "Tikala Lembang"], "Tondon": ["Minanga", "Tondon", "Tondon Mamullu", "Tondon Paesana"], "Sa'dan": ["Bamba", "Benteng Mamullu", "Sa'dan", "Sa'dan Malimbong", "Sa'dan Matallo", "Sapan"], "Tallunglipu": ["Kadundung", "Paniki", "Tandung", "Tallunglipu", "Tallunglipu Matallo", "Tallunglipu Tengan"], "Kesu'": ["Bebo", "Buntu Pune", "Ke'te", "Kesu'", "Rante", "Singki"], "Rindingallo": ["Bakti", "Bamba", "Rindingallo", "Sapan", "Tallunglipu"], "Awan Rante Karua": ["Awan", "Rante Karua", "Sapan"], "Kapala Pitu": ["Benteng", "Kapala Pitu", "Sapan", "Tendan"], "Dende' Piongan Napo": ["Dende", "Napo", "Piongan", "Sapan"], "Buntu Pepasan": ["Buntu Pepasan", "Kaero", "Sapan", "Tallunglipu"], "Bangkel Rending": ["Bangkel", "Rending", "Sapan"], "Baruppu": ["Baruppu", "Baruppu Utara", "Sapan"], "Rantebua": ["Buntu Pune", "Rantebua", "Sapan", "Sullukan"], "Bori'": ["Bori", "Kadundung", "Paniki", "Sapan"], "Piongan": ["Benteng", "Kadundung", "Piongan", "Sapan"]}, "Kab. Tana Toraja": {"Makale": ["Ariang", "Buntu Burake", "Marinding", "Salu", "Tampo"], "Makale Utara": ["Bebo", "Makale", "Palipu", "Sandur"], "Makale Selatan": ["Botang", "Lando", "Makale", "Randang", "Sandur"], "Sangalla": ["Bamba Puang", "Kadundung", "Sangalla", "Sangalla Selatan", "Sangalla Utara"], "Sangalla Selatan": ["Kadundung", "Sangalla Selatan", "Sapan"], "Sangalla Utara": ["Kadundung", "Sangalla Utara", "Sapan"], "Mengkendek": ["Bebo", "Mengkendek", "Paehean", "Sandur", "Sapan"], "Gandang Batu Sillanan": ["Bebo", "Gandang Batu", "Paehean", "Sillanan"], "Rano": ["Babo", "Bau", "Rano", "Sapan"], "Malimbong Balepe": ["Balepe", "Bebo", "Malimbong", "Sapan"], "Bonggakaradeng": ["Bonggakaradeng", "Bebo", "Sapan", "Tondok Bakaru"], "Simbuang": ["Bebo", "Simbuang", "Tondok Bakaru"], "Kurra": ["Bebo", "Kurra", "Sapan"], "Mappak": ["Bebo", "Mappak", "Sapan"], "Bittuang": ["Bittuang", "Bebo", "Mengkendek", "Sapan"], "Masanda": ["Bebo", "Masanda", "Sapan", "Tobu"], "Saluputti": ["Bebo", "Saluputti", "Sapan"], "Denpina": ["Bebo", "Denpina", "Sapan"], "Rembon": ["Bebo", "Rembon", "Sapan", "Tobu"], "Rantetayo": ["Bebo", "Rantetayo", "Sapan"], "Suaya": ["Bebo", "Suaya", "Sapan"]}, "Kab. Enrekang": {"Enrekang": ["Galonta", "Juppandang", "Kambiolangi", "Lewaja", "Puserren", "Ranga", "Talungeng"], "Anggeraja": ["Bamba", "Bambapuang", "Buttu Batu", "Cakke", "Cendana", "Lakawan", "Mataran", "Saruran"], "Alla": ["Buntu Sugi", "Limbong", "Malalin", "Sumbang", "Taulo", "Tibussan"], "Bungin": ["Bambang", "Bungin", "Karrang", "Lewak", "Panta"], "Baraka": ["Balambano", "Baraka", "Bone-Bone", "Kadato", "Kendekan", "Pana", "Parinding", "Salukanan", "Tibussan"], "Buntu Batu": ["Banti", "Banua", "Buntu Batu", "Ledan", "Lunjen"], "Curio": ["Curio", "Latimojong", "Rante Angin", "Rante Baru", "Sumbang"], "Maiwa": ["Baringin", "Kaluppang", "Lebani", "Maiwa", "Pasang", "Rante", "Salu Dewata"], "Malua": ["Batuganda", "Bulan-Bulan", "Kadato", "Malua", "Singki", "Taulo"], "Masalle": ["Buntu Sugi", "Kadato", "Masalle", "Salukanan", "Singki", "Taulo"], "Baroko": ["Baroko", "Buntu Sugi", "Singki", "Taulo"], "Cendana": ["Bone-Bone", "Buntu Sugi", "Cendana", "Kadato", "Singki", "Taulo"]}, "Kab. Kepulauan Selayar": {"Benteng": ["Batangmata", "Batangmata Sapo", "Benteng", "Bontobangun", "Bontomatene", "Bontousa", "Mekar", "Onto", "Patikarya"], "Bontoharu": ["Bontoharu", "Bontolebang", "Bontomalling", "Kayuadi", "Kelepadang", "Laiyolo", "Laiyolo Baru", "Massungke"], "Bontomanai": ["Bontomanai", "Bontomarannu", "Bontona Saluk", "Bontousa", "Majapahit", "Mekar", "Padang", "Polebungin"], "Bontomatene": ["Bontobulaeng", "Bontolempangan", "Bontomatene", "Bontousa", "Kahu-Kahu", "Kawasara", "Mekar", "Onto"], "Bontosikuyu": ["Bontosikuyu", "Bontoborusu", "Bontobulaeng", "Kaburu", "Lalemban", "Patikarya"], "Pasilambena": ["Jinato", "Majapahit", "Pasilambena", "Sambali", "Tambolongang"], "Pasimarannu": ["Bonerate", "Kalao", "Kalaotoa", "Lambego", "Pasimarannu"], "Pasimasunggu": ["Bontobulaeng", "Bontolempangan", "Pasimasunggu", "Pasimasunggu Timur"], "Pasimasunggu Timur": ["Bontousa", "Lalemban", "Pasimasunggu Timur"], "Takabonerate": ["Jinato", "Latondu", "Pulo Madu", "Rajuni", "Tarupa", "Tarupa Kecil"]}};
+
 function WilayahSelect({ prefix, values, onChange }) {
-  const [kabList, setKabList] = useState([]);
-  const [kecList, setKecList] = useState([]);
-  const [kelList, setKelList] = useState([]);
-  const [loadingKab, setLoadingKab] = useState(false);
-  const [loadingKec, setLoadingKec] = useState(false);
-  const [loadingKel, setLoadingKel] = useState(false);
+  const provId   = values[prefix + "_provinsi_id"] || "";
+  const prov     = values[prefix + "_provinsi"] || "";
+  const kab      = values[prefix + "_kabupaten"] || "";
+  const kec      = values[prefix + "_kecamatan"] || "";
+  const kel      = values[prefix + "_kelurahan"] || "";
 
-  const provId = values[prefix + "_provinsi_id"] || "";
-  const kabId  = values[prefix + "_kabupaten_id"] || "";
-  const kecId  = values[prefix + "_kecamatan_id"] || "";
-  const kel    = values[prefix + "_kelurahan"] || "";
-
-  const BASE = "https://api.cahyadsn.com";
-
-  useEffect(() => {
-    if (!provId) { setKabList([]); return; }
-    setLoadingKab(true);
-    fetch(`${BASE}/kabkota/${provId}`)
-      .then(r => r.json())
-      .then(d => {
-        const list = d.data || [];
-        setKabList(list.map(k => ({ id: k.kode, name: k.nama })));
-        setLoadingKab(false);
-      })
-      .catch(() => {
-        // fallback ke emsifa
-        fetch(`https://emsifa.github.io/api-wilayah-indonesia/api/regencies/${provId}.json`)
-          .then(r => r.json()).then(d => { setKabList(d); setLoadingKab(false); })
-          .catch(() => setLoadingKab(false));
-      });
-  }, [provId]);
-
-  useEffect(() => {
-    if (!kabId) { setKecList([]); return; }
-    setLoadingKec(true);
-    fetch(`${BASE}/kecamatan/${kabId}`)
-      .then(r => r.json())
-      .then(d => {
-        const list = d.data || [];
-        setKecList(list.map(k => ({ id: k.kode, name: k.nama })));
-        setLoadingKec(false);
-      })
-      .catch(() => {
-        fetch(`https://emsifa.github.io/api-wilayah-indonesia/api/districts/${kabId}.json`)
-          .then(r => r.json()).then(d => { setKecList(d); setLoadingKec(false); })
-          .catch(() => setLoadingKec(false));
-      });
-  }, [kabId]);
-
-  useEffect(() => {
-    if (!kecId) { setKelList([]); return; }
-    setLoadingKel(true);
-    fetch(`${BASE}/kelurahan/${kecId}`)
-      .then(r => r.json())
-      .then(d => {
-        const list = d.data || [];
-        setKelList(list.map(k => ({ id: k.kode, name: k.nama })));
-        setLoadingKel(false);
-      })
-      .catch(() => {
-        fetch(`https://emsifa.github.io/api-wilayah-indonesia/api/villages/${kecId}.json`)
-          .then(r => r.json()).then(d => { setKelList(d); setLoadingKel(false); })
-          .catch(() => setLoadingKel(false));
-      });
-  }, [kecId]);
+  const isSulsel = prov === "Sulawesi Selatan";
+  const kabList  = isSulsel ? Object.keys(SULSEL_DATA).sort() : [];
+  const kecList  = isSulsel && kab && SULSEL_DATA[kab] ? Object.keys(SULSEL_DATA[kab]).sort() : [];
+  const kelList  = isSulsel && kab && kec && SULSEL_DATA[kab]?.[kec] ? SULSEL_DATA[kab][kec].sort() : [];
 
   const sel = {
     width: "100%", padding: "0.75rem 1rem", background: "#f8fafd",
@@ -715,7 +662,11 @@ function WilayahSelect({ prefix, values, onChange }) {
     outline: "none", boxSizing: "border-box",
     fontFamily: "'DM Sans', sans-serif", fontSize: "0.88rem", marginBottom: "0.6rem",
   };
+  const inp = {
+    ...sel, background: "#f8fafd",
+  };
   const lbl = { fontSize: "0.78rem", color: "#5a7090", marginBottom: "0.3rem", fontWeight: 600, display: "block" };
+  const hint = { fontSize: "0.72rem", color: "#0ea5e9", marginTop: "-0.4rem", marginBottom: "0.5rem", fontStyle: "italic" };
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "0.4rem" }}>
@@ -728,46 +679,64 @@ function WilayahSelect({ prefix, values, onChange }) {
           onChange(prefix + "_kabupaten", ""); onChange(prefix + "_kabupaten_id", "");
           onChange(prefix + "_kecamatan", ""); onChange(prefix + "_kecamatan_id", "");
           onChange(prefix + "_kelurahan", "");
-          setKabList([]); setKecList([]); setKelList([]);
         }}>
         <option value="">— Pilih Provinsi —</option>
         {PROVINCES_API.map(p => <option key={p.id} value={p.id}>{p.name}</option>)}
       </select>
 
       <label style={lbl}>Kabupaten / Kota</label>
-      <select style={{ ...sel, cursor: provId ? "pointer" : "not-allowed", opacity: provId ? 1 : 0.5 }}
-        value={kabId} disabled={!provId}
-        onChange={(e) => {
-          const opt = e.target.options[e.target.selectedIndex];
-          onChange(prefix + "_kabupaten", opt.text); onChange(prefix + "_kabupaten_id", e.target.value);
-          onChange(prefix + "_kecamatan", ""); onChange(prefix + "_kecamatan_id", "");
-          onChange(prefix + "_kelurahan", "");
-          setKecList([]); setKelList([]);
-        }}>
-        <option value="">{loadingKab ? "⏳ Memuat..." : "— Pilih Kabupaten/Kota —"}</option>
-        {kabList.map(k => <option key={k.id} value={k.id}>{k.name}</option>)}
-      </select>
+      {isSulsel ? (
+        <select style={{ ...sel, cursor: "pointer" }} value={kab}
+          onChange={(e) => {
+            onChange(prefix + "_kabupaten", e.target.value);
+            onChange(prefix + "_kabupaten_id", e.target.value);
+            onChange(prefix + "_kecamatan", ""); onChange(prefix + "_kecamatan_id", "");
+            onChange(prefix + "_kelurahan", "");
+          }}>
+          <option value="">— Pilih Kabupaten/Kota —</option>
+          {kabList.map(k => <option key={k} value={k}>{k}</option>)}
+        </select>
+      ) : (
+        <input style={inp} placeholder="Ketik kabupaten/kota..." value={kab}
+          onChange={(e) => onChange(prefix + "_kabupaten", e.target.value)}
+          onFocus={(e) => (e.target.style.borderColor = "#0ea5e9")}
+          onBlur={(e) => (e.target.style.borderColor = "#d0e2f4")} />
+      )}
 
       <label style={lbl}>Kecamatan</label>
-      <select style={{ ...sel, cursor: kabId ? "pointer" : "not-allowed", opacity: kabId ? 1 : 0.5 }}
-        value={kecId} disabled={!kabId}
-        onChange={(e) => {
-          const opt = e.target.options[e.target.selectedIndex];
-          onChange(prefix + "_kecamatan", opt.text); onChange(prefix + "_kecamatan_id", e.target.value);
-          onChange(prefix + "_kelurahan", "");
-          setKelList([]);
-        }}>
-        <option value="">{loadingKec ? "⏳ Memuat..." : "— Pilih Kecamatan —"}</option>
-        {kecList.map(k => <option key={k.id} value={k.id}>{k.name}</option>)}
-      </select>
+      {isSulsel && kecList.length > 0 ? (
+        <select style={{ ...sel, cursor: kab ? "pointer" : "not-allowed", opacity: kab ? 1 : 0.5 }} value={kec}
+          disabled={!kab}
+          onChange={(e) => {
+            onChange(prefix + "_kecamatan", e.target.value);
+            onChange(prefix + "_kecamatan_id", e.target.value);
+            onChange(prefix + "_kelurahan", "");
+          }}>
+          <option value="">— Pilih Kecamatan —</option>
+          {kecList.map(k => <option key={k} value={k}>{k}</option>)}
+        </select>
+      ) : (
+        <input style={inp} placeholder="Ketik nama kecamatan..." value={kec}
+          onChange={(e) => onChange(prefix + "_kecamatan", e.target.value)}
+          onFocus={(e) => (e.target.style.borderColor = "#0ea5e9")}
+          onBlur={(e) => (e.target.style.borderColor = "#d0e2f4")} />
+      )}
 
       <label style={lbl}>Kelurahan / Desa</label>
-      <select style={{ ...sel, cursor: kecId ? "pointer" : "not-allowed", opacity: kecId ? 1 : 0.5 }}
-        value={kel} disabled={!kecId}
-        onChange={(e) => onChange(prefix + "_kelurahan", e.target.value)}>
-        <option value="">{loadingKel ? "⏳ Memuat..." : "— Pilih Kelurahan/Desa —"}</option>
-        {kelList.map(k => <option key={k.id} value={k.name}>{k.name}</option>)}
-      </select>
+      {isSulsel && kelList.length > 0 ? (
+        <select style={{ ...sel, cursor: kec ? "pointer" : "not-allowed", opacity: kec ? 1 : 0.5 }} value={kel}
+          disabled={!kec}
+          onChange={(e) => onChange(prefix + "_kelurahan", e.target.value)}>
+          <option value="">— Pilih Kelurahan/Desa —</option>
+          {kelList.map(k => <option key={k} value={k}>{k}</option>)}
+        </select>
+      ) : (
+        <input style={inp} placeholder="Ketik nama kelurahan/desa..." value={kel}
+          onChange={(e) => onChange(prefix + "_kelurahan", e.target.value)}
+          onFocus={(e) => (e.target.style.borderColor = "#0ea5e9")}
+          onBlur={(e) => (e.target.style.borderColor = "#d0e2f4")} />
+      )}
+      {!isSulsel && provId && <p style={hint}>* Untuk provinsi di luar Sulawesi Selatan, ketik manual</p>}
     </div>
   );
 }
