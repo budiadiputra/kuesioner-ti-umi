@@ -1002,9 +1002,36 @@ function SectionB({ answers, onChange }) {
           value={answers.q7} otherValue={answers.q7_other}
           onChange={onChange} onOtherChange={onChange} />
       </div>
+      {/* Akun Sosmed */}
+      <div>
+        <p style={{ fontSize: "0.92rem", color: "#1e3d6e", fontWeight: 500, marginBottom: "0.25rem" }}>
+          <span style={{ color: "#0ea5e9", marginRight: "0.4rem" }}>3.</span>Akun Media Sosial Anda
+        </p>
+        <p style={{ fontSize: "0.76rem", color: "#6b8aaa", marginBottom: "0.75rem", fontStyle: "italic" }}>Kosongkan jika tidak punya</p>
+        {[
+          { id: "sosmed_instagram", label: "Instagram", placeholder: "@username_instagram" },
+          { id: "sosmed_tiktok", label: "TikTok", placeholder: "@username_tiktok" },
+          { id: "sosmed_facebook", label: "Facebook / Meta", placeholder: "Nama akun Facebook" },
+          { id: "sosmed_twitter", label: "X / Twitter", placeholder: "@username_twitter" },
+          { id: "sosmed_youtube", label: "YouTube", placeholder: "Nama channel YouTube" },
+        ].map(({ id, label, placeholder }) => (
+          <div key={id} style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "0.6rem" }}>
+            <span style={{ fontSize: "0.82rem", color: "#1e3d6e", fontWeight: 600, width: "130px", flexShrink: 0 }}>{label}</span>
+            <input
+              style={{ flex: 1, padding: "0.6rem 0.9rem", background: "#f8fafd", border: "1.5px solid #d0e2f4", borderRadius: "8px", color: "#1a2e4a", outline: "none", fontFamily: "'DM Sans', sans-serif", fontSize: "0.85rem" }}
+              placeholder={placeholder}
+              value={answers[id] || ""}
+              onChange={(e) => onChange(id, e.target.value)}
+              onFocus={(e) => (e.target.style.borderColor = "#0ea5e9")}
+              onBlur={(e) => (e.target.style.borderColor = "#d0e2f4")}
+            />
+          </div>
+        ))}
+      </div>
+
       <div>
         <p style={{ fontSize: "0.92rem", color: "#1e3d6e", fontWeight: 500, marginBottom: "0.75rem" }}>
-          <span style={{ color: "#0ea5e9", marginRight: "0.4rem" }}>3.</span>Seberapa lengkap informasi yang Anda dapatkan sebelum mendaftar?
+          <span style={{ color: "#0ea5e9", marginRight: "0.4rem" }}>4.</span>Seberapa lengkap informasi yang Anda dapatkan sebelum mendaftar?
         </p>
         <RadioWithOther
           q={{ id: "q8", options: ["Sangat lengkap — saya sudah tahu banyak tentang TI UMI", "Cukup — ada beberapa informasi yang masih kurang", "Kurang — saya mendaftar dengan informasi yang sangat terbatas", "Tidak tahu — saya langsung saja daftar"] }}
@@ -1013,7 +1040,7 @@ function SectionB({ answers, onChange }) {
       </div>
       <div>
         <p style={{ fontSize: "0.9rem", color: "#1e3d6e", fontWeight: 600, marginBottom: "0.25rem" }}>
-          <span style={{ color: "#0ea5e9", marginRight: "0.4rem" }}>4.</span>Informasi apa yang paling Anda butuhkan sebelum memilih jurusan ini?
+          <span style={{ color: "#0ea5e9", marginRight: "0.4rem" }}>5.</span>Informasi apa yang paling Anda butuhkan sebelum memilih jurusan ini?
         </p>
         <p style={{ fontSize: "0.78rem", color: "#5a7090", marginBottom: "0.75rem" }}>(Pilih semua yang sesuai)</p>
         <CheckboxWithOther
